@@ -8,13 +8,29 @@ shards:
     git: https://github.com/spider-gazelle/active-model.git
     version: 2.0.3
 
+  admiral:
+    git: https://github.com/jwaldrip/admiral.cr.git
+    version: 1.11.2+git.commit.91df71243271debfeb46fe751b4b9d8892ab6f2d
+
   ameba:
     git: https://github.com/veelenga/ameba.git
     version: 0.13.4
 
+  clear:
+    git: https://github.com/anykeyh/clear.git
+    version: 0.9+git.commit.157cf630112bf1690816cc5cfa8051d457f546da
+
+  db:
+    git: https://github.com/crystal-lang/crystal-db.git
+    version: 0.10.0
+
   future:
     git: https://github.com/crystal-community/future.cr.git
     version: 0.1.0
+
+  generate:
+    git: https://github.com/anykeyh/generate.cr.git
+    version: 0.1.0+git.commit.27a59d663ded8ce39a361e3a88b8dd747f59ce42
 
   habitat:
     git: https://github.com/luckyframework/habitat.git
@@ -23,6 +39,10 @@ shards:
   http-params-serializable:
     git: https://github.com/caspiano/http-params-serializable.git
     version: 0.4.1+git.commit.1610a206f676269c1b862281cda3ed82548ced34
+
+  inflector:
+    git: https://github.com/phoffer/inflector.cr.git
+    version: 0.1.8
 
   json_mapping:
     git: https://github.com/crystal-lang/json_mapping.cr.git
@@ -35,6 +55,10 @@ shards:
   lucky_router:
     git: https://github.com/luckyframework/lucky_router.git
     version: 0.4.0
+
+  pg:
+    git: https://github.com/will/crystal-pg.git
+    version: 0.23.1+git.commit.cafe039cfd6340a271e81603943bb1975f5a91f5
 
   secrets-env:
     git: https://github.com/place-labs/secrets-env.git

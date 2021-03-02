@@ -4,6 +4,7 @@ require "active-model"
 require "kilt"
 require "./constants"
 
+
 # Application code
 require "./controllers/application"
 require "./controllers/*"

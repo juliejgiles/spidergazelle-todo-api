@@ -8,6 +8,11 @@ dependencies:
   active-model:
     github: spider-gazelle/active-model
 
+  # Installing Clear ORM
+  clear:
+    github: anykeyh/clear
+    branch: master
+
   # Extends ENV to read values injected by docker and kubernetes secrets
   secrets-env:
     github: place-labs/secrets-env
