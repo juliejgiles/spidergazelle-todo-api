@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.35.1">
+<meta name="crystal_docs.project_version" content="main-dev">
+<meta name="crystal_docs.project_name" content="spider-gazelle">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="spider-gazelle">
+  <title>Application - spider-gazelle main-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          spider-gazelle
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="spider-gazelle/App" data-name="app">
+      <a href="App.html">App</a>
+      
+    </li>
+  
+  <li class=" current" data-id="spider-gazelle/Application" data-name="application">
+      <a href="Application.html">Application</a>
+      
+    </li>
+  
+  <li class="parent " data-id="spider-gazelle/Task" data-name="task">
+      <a href="Task.html">Task</a>
+      
+        <ul>
+  
+  <li class=" " data-id="spider-gazelle/Task/Collection" data-name="task::collection">
+      <a href="Task/Collection.html">Collection</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="spider-gazelle/TasksController" data-name="taskscontroller">
+      <a href="TasksController.html">TasksController</a>
+      
+    </li>
+  
+  <li class=" " data-id="spider-gazelle/Welcome" data-name="welcome">
+      <a href="Welcome.html">Welcome</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">abstract class</span> Application
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Application.html">Application</a></li><li class="superclass">ActionController::Base</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct Known Subclasses
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="TasksController.html">TasksController</a></li>
+    
+      <li class="other-type"><a href="Welcome.html">Welcome</a></li>
+    
+  </ul>
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="AFTER">
+        <strong>AFTER</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="AROUND">
+        <strong>AROUND</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="BEFORE">
+        <strong>BEFORE</strong> = <code>{set_request_id => {<span class="n">nil</span>, <span class="n">nil</span>}, set_date_header => {<span class="n">nil</span>, <span class="n">nil</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="FORCE">
+        <strong>FORCE</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="LOCAL_AFTER">
+        <strong>LOCAL_AFTER</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>function => options</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="LOCAL_AROUND">
+        <strong>LOCAL_AROUND</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>function => options</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="LOCAL_BEFORE">
+        <strong>LOCAL_BEFORE</strong> = <code>{set_request_id => {<span class="n">nil</span>, <span class="n">nil</span>}, set_date_header => {<span class="n">nil</span>, <span class="n">nil</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>function => options</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="LOCAL_FORCE">
+        <strong>LOCAL_FORCE</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>function => options</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="LOCAL_RESCUE">
+        <strong>LOCAL_RESCUE</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>function => options</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="LOCAL_ROUTES">
+        <strong>LOCAL_ROUTES</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>function => options</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="LOCAL_SKIP">
+        <strong>LOCAL_SKIP</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>function => options</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="Log">
+        <strong>Log</strong> = <code><span class="t">::</span><span class="t">App</span><span class="t">::</span><span class="t">Log</span>.<span class="k">for</span>(<span class="s">&quot;controller&quot;</span>)</code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>Configure your log source name</p>
+
+<p><span class="flag purple">NOTE</span> : this is chaining from App::Log</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="NAMESPACE">
+        <strong>NAMESPACE</strong> = <code>[<span class="s">&quot;/application&quot;</span>]</code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>default namespace based on class</p>
+      </dd>
+      
+    
+      <dt class="entry-const" id="RESCUE">
+        <strong>RESCUE</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="ROUTES">
+        <strong>ROUTES</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="SKIP">
+        <strong>SKIP</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#context(method:String,route:String,route_params:Hash(String,String)?=nil,headers:Hash(String,String)?=nil,body:String%7CBytes%7CIO%7CNil=nil,&)-class-method" class="signature"><strong>.context</strong>(method : String, route : String, route_params : Hash(String, String)? = <span class="n">nil</span>, headers : Hash(String, String)? = <span class="n">nil</span>, body : String | Bytes | IO | Nil = <span class="n">nil</span>, &)</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#set_date_header-instance-method" class="signature"><strong>#set_date_header</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set_request_id-instance-method" class="signature"><strong>#set_request_id</strong></a>
+        
+          <div class="summary"><p>This makes it simple to match client requests with server side logs.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="macro-summary" class="anchor" href="#macro-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#__inherit_after_filters__-macro" class="signature"><strong>__inherit_after_filters__</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#__inherit_around_filters__-macro" class="signature"><strong>__inherit_around_filters__</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#__inherit_before_filters__-macro" class="signature"><strong>__inherit_before_filters__</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#__inherit_force_filters__-macro" class="signature"><strong>__inherit_force_filters__</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#__inherit_rescue_filters__-macro" class="signature"><strong>__inherit_rescue_filters__</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#__inherit_routes_filters__-macro" class="signature"><strong>__inherit_routes_filters__</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#__inherit_skip_filters__-macro" class="signature"><strong>__inherit_skip_filters__</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="context(method:String,route:String,route_params:Hash(String,String)?=nil,headers:Hash(String,String)?=nil,body:String|Bytes|IO|Nil=nil,&)-class-method">
+      <div class="signature">
+        
+        def self.<strong>context</strong>(method : String, route : String, route_params : Hash(String, String)? = <span class="n">nil</span>, headers : Hash(String, String)? = <span class="n">nil</span>, body : String | Bytes | IO | Nil = <span class="n">nil</span>, &)
+
+        <a class="method-permalink" href="#context(method:String,route:String,route_params:Hash(String,String)?=nil,headers:Hash(String,String)?=nil,body:String%7CBytes%7CIO%7CNil=nil,&)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="set_date_header-instance-method">
+      <div class="signature">
+        
+        def <strong>set_date_header</strong>
+
+        <a class="method-permalink" href="#set_date_header-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set_request_id-instance-method">
+      <div class="signature">
+        
+        def <strong>set_request_id</strong>
+
+        <a class="method-permalink" href="#set_request_id-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>This makes it simple to match client requests with server side logs.
+When building microservices this ID should be propagated to upstream services.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="macro-detail" class="anchor" href="#macro-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Macro Detail
+  </h2>
+  
+    <div class="entry-detail" id="__inherit_after_filters__-macro">
+      <div class="signature">
+        
+        macro <strong>__inherit_after_filters__</strong>
+
+        <a class="method-permalink" href="#__inherit_after_filters__-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="__inherit_around_filters__-macro">
+      <div class="signature">
+        
+        macro <strong>__inherit_around_filters__</strong>
+
+        <a class="method-permalink" href="#__inherit_around_filters__-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="__inherit_before_filters__-macro">
+      <div class="signature">
+        
+        macro <strong>__inherit_before_filters__</strong>
+
+        <a class="method-permalink" href="#__inherit_before_filters__-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="__inherit_force_filters__-macro">
+      <div class="signature">
+        
+        macro <strong>__inherit_force_filters__</strong>
+
+        <a class="method-permalink" href="#__inherit_force_filters__-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="__inherit_rescue_filters__-macro">
+      <div class="signature">
+        
+        macro <strong>__inherit_rescue_filters__</strong>
+
+        <a class="method-permalink" href="#__inherit_rescue_filters__-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="__inherit_routes_filters__-macro">
+      <div class="signature">
+        
+        macro <strong>__inherit_routes_filters__</strong>
+
+        <a class="method-permalink" href="#__inherit_routes_filters__-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="__inherit_skip_filters__-macro">
+      <div class="signature">
+        
+        macro <strong>__inherit_skip_filters__</strong>
+
+        <a class="method-permalink" href="#__inherit_skip_filters__-macro">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+</div>
+
+</body>
+</html>

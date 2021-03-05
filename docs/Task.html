@@ -1,0 +1,2224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.35.1">
+<meta name="crystal_docs.project_version" content="main-dev">
+<meta name="crystal_docs.project_name" content="spider-gazelle">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="spider-gazelle">
+  <title>Task - spider-gazelle main-dev</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          spider-gazelle
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="spider-gazelle/App" data-name="app">
+      <a href="App.html">App</a>
+      
+    </li>
+  
+  <li class=" " data-id="spider-gazelle/Application" data-name="application">
+      <a href="Application.html">Application</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="spider-gazelle/Task" data-name="task">
+      <a href="Task.html">Task</a>
+      
+        <ul>
+  
+  <li class=" " data-id="spider-gazelle/Task/Collection" data-name="task::collection">
+      <a href="Task/Collection.html">Collection</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="spider-gazelle/TasksController" data-name="taskscontroller">
+      <a href="TasksController.html">TasksController</a>
+      
+    </li>
+  
+  <li class=" " data-id="spider-gazelle/Welcome" data-name="welcome">
+      <a href="Welcome.html">Welcome</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> Task
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="Task.html">Task</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">Clear::Model</li>
+    
+      <li class="other-type">Clear::Model::Relations::BelongsToMacro</li>
+    
+      <li class="other-type">Clear::Model::Relations::HasManyMacro</li>
+    
+      <li class="other-type">Clear::Model::Relations::HasManyThroughMacro</li>
+    
+      <li class="other-type">Clear::Model::Relations::HasOneMacro</li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="extended-modules" class="anchor" href="#extended-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Extended Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">Clear::Model::HasHooks::ClassMethods</li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="COLUMNS">
+        <strong>COLUMNS</strong> = <code>{<span class="s">&quot;name&quot;</span> => {<span class="k">type</span>: <span class="t">String</span>, primary: <span class="n">false</span>, converter: <span class="s">&quot;String&quot;</span>, db_column_name: <span class="s">&quot;name&quot;</span>, crystal_variable_name: name, presence: <span class="n">true</span>, mass_assign: <span class="n">true</span>}, <span class="s">&quot;description&quot;</span> => {<span class="k">type</span>: <span class="t">String</span>, primary: <span class="n">false</span>, converter: <span class="s">&quot;String&quot;</span>, db_column_name: <span class="s">&quot;description&quot;</span>, crystal_variable_name: description, presence: <span class="n">true</span>, mass_assign: <span class="n">true</span>}, <span class="s">&quot;id&quot;</span> => {<span class="k">type</span>: <span class="t">Int32</span>, primary: <span class="n">true</span>, converter: <span class="s">&quot;Int32&quot;</span>, db_column_name: <span class="s">&quot;id&quot;</span>, crystal_variable_name: id, presence: <span class="n">false</span>, mass_assign: <span class="n">true</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="POLYMORPHISM_SETTINGS">
+        <strong>POLYMORPHISM_SETTINGS</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="RELATION_FILTERS">
+        <strong>RELATION_FILTERS</strong> = <code>{} <span class="k">of</span> <span class="t">String</span> => (<span class="t">Clear</span><span class="t">::</span><span class="t">SQL</span><span class="t">::</span><span class="t">SelectBuilder</span> -> )</code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#create(**args):self-class-method" class="signature"><strong>.create</strong>(**args) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Build and new model and save it.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create(x:NamedTuple):self-class-method" class="signature"><strong>.create</strong>(x : NamedTuple) : <span class="k">self</span></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create(x:Hash):self-class-method" class="signature"><strong>.create</strong>(x : Hash) : <span class="k">self</span></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create!(**args):self-class-method" class="signature"><strong>.create!</strong>(**args) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Build and new model and save it.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create!(x:NamedTuple):self-class-method" class="signature"><strong>.create!</strong>(x : NamedTuple) : <span class="k">self</span></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create!(a:Hash):self-class-method" class="signature"><strong>.create!</strong>(a : Hash) : <span class="k">self</span></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(h:Hash(String,_),cache:Clear::Model::QueryCache?=nil,persisted=false,fetch_columns=false)-class-method" class="signature"><strong>.new</strong>(h : Hash(String, _), cache : Clear::Model::QueryCache? = <span class="n">nil</span>, persisted = <span class="n">false</span>, fetch_columns = <span class="n">false</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(json:JSON::Any,cache:Clear::Model::QueryCache?=nil,persisted=false)-class-method" class="signature"><strong>.new</strong>(json : JSON::Any, cache : Clear::Model::QueryCache? = <span class="n">nil</span>, persisted = <span class="n">false</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(t:NamedTuple,persisted=false)-class-method" class="signature"><strong>.new</strong>(t : NamedTuple, persisted = <span class="n">false</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new-class-method" class="signature"><strong>.new</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#__call_relation_filter__(name:String,query:Clear::SQL::SelectBuilder)-class-method" class="signature"><strong>.__call_relation_filter__</strong>(name : String, query : Clear::SQL::SelectBuilder)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#build(**x:**T)forallT-class-method" class="signature"><strong>.build</strong>(**x : **T) forall T</a>
+        
+          <div class="summary"><p>Build a new empty model and fill the columns using the NamedTuple in argument.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#columns-class-method" class="signature"><strong>.columns</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#connection:String-class-method" class="signature"><strong>.connection</strong> : String</a>
+        
+          <div class="summary"><p>Define on which connection the model is living.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#connection=(connection:String)-class-method" class="signature"><strong>.connection=</strong>(connection : String)</a>
+        
+          <div class="summary"><p>Define on which connection the model is living.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create(x:Array(NamedTuple)):Array(self)-class-method" class="signature"><strong>.create</strong>(x : Array(NamedTuple)) : Array(<span class="k">self</span>)</a>
+        
+          <div class="summary"><p>Multi-models creation.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create!(x:Array(NamedTuple)):Array(self)-class-method" class="signature"><strong>.create!</strong>(x : Array(NamedTuple)) : Array(<span class="k">self</span>)</a>
+        
+          <div class="summary"><p>Multi-models creation.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create_from_json(string_or_io:String%7CIO,trusted:Bool=false)-class-method" class="signature"><strong>.create_from_json</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Create a new model from json and save it.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create_from_json!(string_or_io:String%7CIO,trusted:Bool=false)-class-method" class="signature"><strong>.create_from_json!</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Create a new model from json and save it.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find(x)-class-method" class="signature"><strong>.find</strong>(x)</a>
+        
+          <div class="summary"><p>Returns a model using primary key equality Returns <code>nil</code> if not found.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find!(x)-class-method" class="signature"><strong>.find!</strong>(x)</a>
+        
+          <div class="summary"><p>Returns a model using primary key equality.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from_json(string_or_io:String%7CIO,trusted:Bool=false)-class-method" class="signature"><strong>.from_json</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Create a new empty model and fill the columns from json.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#full_table_name-class-method" class="signature"><strong>.full_table_name</strong></a>
+        
+          <div class="summary"><p>returns the fully qualified and escaped name for this table.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#import(array:Enumerable(self),on_conflict:Clear::SQL::InsertQuery-%3E?=nil)-class-method" class="signature"><strong>.import</strong>(array : Enumerable(<span class="k">self</span>), on_conflict : Clear::SQL::InsertQuery -> ? = <span class="n">nil</span>)</a>
+        
+          <div class="summary"><p>Import a bulk of models in one SQL insert query.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#polymorphic?:Bool-class-method" class="signature"><strong>.polymorphic?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#query-class-method" class="signature"><strong>.query</strong></a>
+        
+          <div class="summary"><p>Return a new empty query <code>SELECT * FROM [my_model_table]</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#read_only=(read_only:Bool)-class-method" class="signature"><strong>.read_only=</strong>(read_only : Bool)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#read_only?:Bool-class-method" class="signature"><strong>.read_only?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#schema:Clear::SQL::Symbolic?-class-method" class="signature"><strong>.schema</strong> : Clear::SQL::Symbolic?</a>
+        
+          <div class="summary"><p>Define the current schema used in PostgreSQL.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#schema=(schema:Clear::SQL::Symbolic?)-class-method" class="signature"><strong>.schema=</strong>(schema : Clear::SQL::Symbolic?)</a>
+        
+          <div class="summary"><p>Define the current schema used in PostgreSQL.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#table:Clear::SQL::Symbolic-class-method" class="signature"><strong>.table</strong> : Clear::SQL::Symbolic</a>
+        
+          <div class="summary"><p>Return the table name setup for this model.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#table=(table:Clear::SQL::Symbolic)-class-method" class="signature"><strong>.table=</strong>(table : Clear::SQL::Symbolic)</a>
+        
+          <div class="summary"><p>Return the table name setup for this model.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#attributes:Hash(String,Clear::SQL::Any)-instance-method" class="signature"><strong>#attributes</strong> : Hash(String, Clear::SQL::Any)</a>
+        
+          <div class="summary"><p>Attributes, used when fetch_columns is true</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#cache:Clear::Model::QueryCache?-instance-method" class="signature"><strong>#cache</strong> : Clear::Model::QueryCache?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changed?-instance-method" class="signature"><strong>#changed?</strong></a>
+        
+          <div class="summary"><p>Return <code>true</code> if the model is dirty (e.g.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clear_change_flags-instance-method" class="signature"><strong>#clear_change_flags</strong></a>
+        
+          <div class="summary"><p>Reset the <code><a href="Task.html#changed?-instance-method">#changed?</a></code> flag on all columns</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#description:String-instance-method" class="signature"><strong>#description</strong> : String</a>
+        
+          <div class="summary"><p>Returns the value of <code><a href="Task.html#description:String-instance-method">#description</a></code> column or throw an exception if the column is not defined.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#description=(x:String)-instance-method" class="signature"><strong>#description=</strong>(x : String)</a>
+        
+          <div class="summary"><p>Setter for <code><a href="Task.html#description:String-instance-method">#description</a></code> column.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#description_column:Clear::Model::Column(String,Clear::Model::Converter::StringConverter)-instance-method" class="signature"><strong>#description_column</strong> : Clear::Model::Column(String, Clear::Model::Converter::StringConverter)</a>
+        
+          <div class="summary"><p>Returns the column object used to manage <code><a href="Task.html#description:String-instance-method">#description</a></code> field</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id:Int32-instance-method" class="signature"><strong>#id</strong> : Int32</a>
+        
+          <div class="summary"><p>Returns the value of <code><a href="Task.html#id:Int32-instance-method">#id</a></code> column or throw an exception if the column is not defined.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id=(x:Int32)-instance-method" class="signature"><strong>#id=</strong>(x : Int32)</a>
+        
+          <div class="summary"><p>Setter for <code><a href="Task.html#id:Int32-instance-method">#id</a></code> column.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id_column:Clear::Model::Column(Int32,Clear::Model::Converter::Int32Converter)-instance-method" class="signature"><strong>#id_column</strong> : Clear::Model::Column(Int32, Clear::Model::Converter::Int32Converter)</a>
+        
+          <div class="summary"><p>Returns the column object used to manage <code><a href="Task.html#id:Int32-instance-method">#id</a></code> field</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#invalidate_caches:self-instance-method" class="signature"><strong>#invalidate_caches</strong> : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Invalidate local-to-relation cache and eager-loading cache.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name:String-instance-method" class="signature"><strong>#name</strong> : String</a>
+        
+          <div class="summary"><p>Returns the value of <code><a href="Task.html#name:String-instance-method">#name</a></code> column or throw an exception if the column is not defined.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name=(x:String)-instance-method" class="signature"><strong>#name=</strong>(x : String)</a>
+        
+          <div class="summary"><p>Setter for <code><a href="Task.html#name:String-instance-method">#name</a></code> column.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name_column:Clear::Model::Column(String,Clear::Model::Converter::StringConverter)-instance-method" class="signature"><strong>#name_column</strong> : Clear::Model::Column(String, Clear::Model::Converter::StringConverter)</a>
+        
+          <div class="summary"><p>Returns the column object used to manage <code><a href="Task.html#name:String-instance-method">#name</a></code> field</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reset(**t:**T)forallT-instance-method" class="signature"><strong>#reset</strong>(**t : **T) forall T</a>
+        
+          <div class="summary"><p>reset flavors</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reset(from_json:JSON::Any)-instance-method" class="signature"><strong>#reset</strong>(from_json : JSON::Any)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reset(t:NamedTuple)-instance-method" class="signature"><strong>#reset</strong>(t : NamedTuple)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reset(h:Hash(String,_))-instance-method" class="signature"><strong>#reset</strong>(h : Hash(String, _))</a>
+        
+          <div class="summary"><p>Set the model fields from hash</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#reset(h:Hash(Symbol,_))-instance-method" class="signature"><strong>#reset</strong>(h : Hash(Symbol, _))</a>
+        
+          <div class="summary"><p>Set the columns from hash</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set(h:Hash(Symbol,_))-instance-method" class="signature"><strong>#set</strong>(h : Hash(Symbol, _))</a>
+        
+          <div class="summary"><p>Set the columns from hash</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set(h:Hash(String,_))-instance-method" class="signature"><strong>#set</strong>(h : Hash(String, _))</a>
+        
+          <div class="summary"><p>Set the model fields from hash</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set(t:NamedTuple)-instance-method" class="signature"><strong>#set</strong>(t : NamedTuple)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set(from_json:JSON::Any)-instance-method" class="signature"><strong>#set</strong>(from_json : JSON::Any)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set(**t:**T)forallT-instance-method" class="signature"><strong>#set</strong>(**t : **T) forall T</a>
+        
+          <div class="summary"><p>Set one or multiple columns to a specific value This two are equivalents:</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set_from_json(string_or_io:String%7CIO,trusted:Bool=false)-instance-method" class="signature"><strong>#set_from_json</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Set the fields from json passed as argument Trusted flag set to true will allow mass assignment without protection, FALSE by default</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_h(full=false):Hash(String,Clear::SQL::Any)-instance-method" class="signature"><strong>#to_h</strong>(full = <span class="n">false</span>) : Hash(String, Clear::SQL::Any)</a>
+        
+          <div class="summary"><p>Return a hash version of the columns of this model.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_json(emit_nulls:Bool=false)-instance-method" class="signature"><strong>#to_json</strong>(emit_nulls : Bool = <span class="n">false</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_json(json,emit_nulls=false)-instance-method" class="signature"><strong>#to_json</strong>(json, emit_nulls = <span class="n">false</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#update_from_json(string_or_io:String%7CIO,trusted:Bool=false)-instance-method" class="signature"><strong>#update_from_json</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Set the fields from json passed as argument and call <code>save</code> on the object Trusted flag set to true will allow mass assignment without protection, FALSE by default</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#update_from_json!(string_or_io:String%7CIO,trusted:Bool=false)-instance-method" class="signature"><strong>#update_from_json!</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)</a>
+        
+          <div class="summary"><p>Set the fields from json passed as argument and call <code>save!</code> on the object Trusted flag set to true will allow mass assignment without protection, FALSE by default</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#update_h:Hash(String,Clear::SQL::Any)-instance-method" class="signature"><strong>#update_h</strong> : Hash(String, Clear::SQL::Any)</a>
+        
+          <div class="summary"><p>Generate the hash for update request (like during save)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#validate_fields_presence-instance-method" class="signature"><strong>#validate_fields_presence</strong></a>
+        
+          <div class="summary"><p>For each column, ensure than when needed the column has present information into it.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="create(**args):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>create</strong>(**args) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#create(**args):self-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Build and new model and save it. Returns the model.</p>
+
+<p>The model may not be saved due to validation failure;
+check the returned model <code>errors?</code> and <code>persisted?</code> flags.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create(x:NamedTuple):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>create</strong>(x : NamedTuple) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#create(x:NamedTuple):self-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create(x:Hash):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>create</strong>(x : Hash) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#create(x:Hash):self-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create!(**args):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>create!</strong>(**args) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#create!(**args):self-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Build and new model and save it. Returns the model.</p>
+
+<p>Returns the newly inserted model
+Raises an exception if validation failed during the saving process.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create!(x:NamedTuple):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>create!</strong>(x : NamedTuple) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#create!(x:NamedTuple):self-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create!(a:Hash):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>create!</strong>(a : Hash) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#create!(a:Hash):self-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(h:Hash(String,_),cache:Clear::Model::QueryCache?=nil,persisted=false,fetch_columns=false)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(h : Hash(String, _), cache : Clear::Model::QueryCache? = <span class="n">nil</span>, persisted = <span class="n">false</span>, fetch_columns = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#new(h:Hash(String,_),cache:Clear::Model::QueryCache?=nil,persisted=false,fetch_columns=false)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(json:JSON::Any,cache:Clear::Model::QueryCache?=nil,persisted=false)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(json : JSON::Any, cache : Clear::Model::QueryCache? = <span class="n">nil</span>, persisted = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#new(json:JSON::Any,cache:Clear::Model::QueryCache?=nil,persisted=false)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(t:NamedTuple,persisted=false)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(t : NamedTuple, persisted = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#new(t:NamedTuple,persisted=false)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>
+
+        <a class="method-permalink" href="#new-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="__call_relation_filter__(name:String,query:Clear::SQL::SelectBuilder)-class-method">
+      <div class="signature">
+        
+        def self.<strong>__call_relation_filter__</strong>(name : String, query : Clear::SQL::SelectBuilder)
+
+        <a class="method-permalink" href="#__call_relation_filter__(name:String,query:Clear::SQL::SelectBuilder)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="build(**x:**T)forallT-class-method">
+      <div class="signature">
+        
+        def self.<strong>build</strong>(**x : **T) forall T
+
+        <a class="method-permalink" href="#build(**x:**T)forallT-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Build a new empty model and fill the columns using the NamedTuple in argument.</p>
+
+<p>Returns the new model</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="columns-class-method">
+      <div class="signature">
+        
+        def self.<strong>columns</strong>
+
+        <a class="method-permalink" href="#columns-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="connection:String-class-method">
+      <div class="signature">
+        
+        def self.<strong>connection</strong> : String
+
+        <a class="method-permalink" href="#connection:String-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Define on which connection the model is living. Useful in case of models living in different databases.</p>
+
+<p>Is set to "default" by default.</p>
+
+<p>See <code>Clear::SQL#init(URI, *opts)</code> for more information about multi-connections.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-crystal"> <span class="t">Clear</span><span class="t">::</span><span class="t">SQL</span>.init(<span class="s">&quot;postgres://postgres@localhost/database_1&quot;</span>, connection_pool_size: <span class="n">5</span>)
+ <span class="t">Clear</span><span class="t">::</span><span class="t">SQL</span>.init(<span class="s">&quot;secondary&quot;</span>, <span class="s">&quot;postgres://postgres@localhost/database_2&quot;</span>, connection_pool_size: <span class="n">5</span>)
+
+<span class="k">class</span> <span class="t">ModelA</span>
+  <span class="k">include</span> <span class="t">Clear</span><span class="t">::</span><span class="t">Model</span>
+
+  <span class="c"># Performs all the queries on `database_1`</span>
+  <span class="c"># self.connection = &quot;default&quot;</span>
+  column id : <span class="t">Int32</span>, primary: <span class="n">true</span>, presence: <span class="n">false</span>
+  column title : <span class="t">String</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="t">ModelB</span>
+  <span class="k">include</span> <span class="t">Clear</span><span class="t">::</span><span class="t">Model</span>
+
+  <span class="c"># Performs all the queries on `database_2`</span>
+  <span class="k">self</span>.connection <span class="o">=</span> <span class="s">&quot;secondary&quot;</span>
+
+  column id : <span class="t">Int32</span>, primary: <span class="n">true</span>, presence: <span class="n">false</span>
+<span class="k">end</span>
+</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="connection=(connection:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>connection=</strong>(connection : String)
+
+        <a class="method-permalink" href="#connection=(connection:String)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Define on which connection the model is living. Useful in case of models living in different databases.</p>
+
+<p>Is set to "default" by default.</p>
+
+<p>See <code>Clear::SQL#init(URI, *opts)</code> for more information about multi-connections.</p>
+
+<p>Example:</p>
+
+<pre><code class="language-crystal"> <span class="t">Clear</span><span class="t">::</span><span class="t">SQL</span>.init(<span class="s">&quot;postgres://postgres@localhost/database_1&quot;</span>, connection_pool_size: <span class="n">5</span>)
+ <span class="t">Clear</span><span class="t">::</span><span class="t">SQL</span>.init(<span class="s">&quot;secondary&quot;</span>, <span class="s">&quot;postgres://postgres@localhost/database_2&quot;</span>, connection_pool_size: <span class="n">5</span>)
+
+<span class="k">class</span> <span class="t">ModelA</span>
+  <span class="k">include</span> <span class="t">Clear</span><span class="t">::</span><span class="t">Model</span>
+
+  <span class="c"># Performs all the queries on `database_1`</span>
+  <span class="c"># self.connection = &quot;default&quot;</span>
+  column id : <span class="t">Int32</span>, primary: <span class="n">true</span>, presence: <span class="n">false</span>
+  column title : <span class="t">String</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="t">ModelB</span>
+  <span class="k">include</span> <span class="t">Clear</span><span class="t">::</span><span class="t">Model</span>
+
+  <span class="c"># Performs all the queries on `database_2`</span>
+  <span class="k">self</span>.connection <span class="o">=</span> <span class="s">&quot;secondary&quot;</span>
+
+  column id : <span class="t">Int32</span>, primary: <span class="n">true</span>, presence: <span class="n">false</span>
+<span class="k">end</span>
+</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create(x:Array(NamedTuple)):Array(self)-class-method">
+      <div class="signature">
+        
+        def self.<strong>create</strong>(x : Array(NamedTuple)) : Array(<span class="k">self</span>)
+
+        <a class="method-permalink" href="#create(x:Array(NamedTuple)):Array(self)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Multi-models creation. See <code>Collection#create(**args)</code></p>
+
+<p>Returns the list of newly created model.</p>
+
+<p>Each model will call an <code>INSERT</code> query.
+You may want to use <code>Collection#import</code> to insert multiple model more efficiently in one query.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create!(x:Array(NamedTuple)):Array(self)-class-method">
+      <div class="signature">
+        
+        def self.<strong>create!</strong>(x : Array(NamedTuple)) : Array(<span class="k">self</span>)
+
+        <a class="method-permalink" href="#create!(x:Array(NamedTuple)):Array(self)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Multi-models creation. See <code>Collection#create!(**args)</code></p>
+
+<p>Returns the list of newly created model.
+Raises exception if any of the model has validation error.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create_from_json(string_or_io:String|IO,trusted:Bool=false)-class-method">
+      <div class="signature">
+        
+        def self.<strong>create_from_json</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#create_from_json(string_or_io:String%7CIO,trusted:Bool=false)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Create a new model from json and save it. Returns the model.</p>
+
+<p>The model may not be saved due to validation failure;
+check the returned model <code>errors?</code> and <code>persisted?</code> flags.
+Trusted flag set to true will allow mass assignment without protection, FALSE by default</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create_from_json!(string_or_io:String|IO,trusted:Bool=false)-class-method">
+      <div class="signature">
+        
+        def self.<strong>create_from_json!</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#create_from_json!(string_or_io:String%7CIO,trusted:Bool=false)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Create a new model from json and save it. Returns the model.</p>
+
+<p>Returns the newly inserted model
+Raises an exception if validation failed during the saving process.
+Trusted flag set to true will allow mass assignment without protection, FALSE by default</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find(x)-class-method">
+      <div class="signature">
+        
+        def self.<strong>find</strong>(x)
+
+        <a class="method-permalink" href="#find(x)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a model using primary key equality
+Returns <code>nil</code> if not found.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find!(x)-class-method">
+      <div class="signature">
+        
+        def self.<strong>find!</strong>(x)
+
+        <a class="method-permalink" href="#find!(x)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a model using primary key equality.
+Raises error if the model is not found.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from_json(string_or_io:String|IO,trusted:Bool=false)-class-method">
+      <div class="signature">
+        
+        def self.<strong>from_json</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#from_json(string_or_io:String%7CIO,trusted:Bool=false)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Create a new empty model and fill the columns from json. Returns the new model</p>
+
+<p>Trusted flag set to true will allow mass assignment without protection, FALSE by default</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="full_table_name-class-method">
+      <div class="signature">
+        
+        def self.<strong>full_table_name</strong>
+
+        <a class="method-permalink" href="#full_table_name-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>returns the fully qualified and escaped name for this table.
+add schema if schema is different from 'public' (default schema)</p>
+
+<p>ex: "schema"."table"</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="import(array:Enumerable(self),on_conflict:Clear::SQL::InsertQuery->?=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>import</strong>(array : Enumerable(<span class="k">self</span>), on_conflict : Clear::SQL::InsertQuery -> ? = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#import(array:Enumerable(self),on_conflict:Clear::SQL::InsertQuery-%3E?=nil)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Import a bulk of models in one SQL insert query.
+Each model must be non-persisted.</p>
+
+<p><code>on_conflict</code> callback can be optionnaly turned on
+to manage constraints of the database.</p>
+
+<p>Note: Old models are not modified. This method return a copy of the
+models as saved in the database.</p>
+
+<h2><a id="example" class="anchor" href="#example">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Example:</h2>
+
+<pre><code class="language-crystal">
+ users <span class="o">=</span> [ <span class="t">User</span>.<span class="k">new</span>(id: <span class="n">1</span>), <span class="t">User</span>.<span class="k">new</span>(id: <span class="n">2</span>), <span class="t">User</span>.<span class="k">new</span>(id: <span class="n">3</span>)]
+ users <span class="o">=</span> <span class="t">User</span>.import(users)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="polymorphic?:Bool-class-method">
+      <div class="signature">
+        
+        def self.<strong>polymorphic?</strong> : Bool
+
+        <a class="method-permalink" href="#polymorphic?:Bool-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="query-class-method">
+      <div class="signature">
+        
+        def self.<strong>query</strong>
+
+        <a class="method-permalink" href="#query-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Return a new empty query <code>SELECT * FROM [my_model_table]</code>. Can be refined after that.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="read_only=(read_only:Bool)-class-method">
+      <div class="signature">
+        
+        def self.<strong>read_only=</strong>(read_only : Bool)
+
+        <a class="method-permalink" href="#read_only=(read_only:Bool)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="read_only?:Bool-class-method">
+      <div class="signature">
+        
+        def self.<strong>read_only?</strong> : Bool
+
+        <a class="method-permalink" href="#read_only?:Bool-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="schema:Clear::SQL::Symbolic?-class-method">
+      <div class="signature">
+        
+        def self.<strong>schema</strong> : Clear::SQL::Symbolic?
+
+        <a class="method-permalink" href="#schema:Clear::SQL::Symbolic?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Define the current schema used in PostgreSQL. The value is <code>nil</code> by default, which lead to non-specified
+  schema during the querying, and usage of "public" by PostgreSQL.</p>
+
+<p>This property can be redefined on initialization. Example:</p>
+
+<pre><code class="language-crystal">  <span class="k">class</span> <span class="t">MyModel</span>
+    <span class="k">include</span> <span class="t">Clear</span><span class="t">::</span><span class="t">Model</span>
+
+    <span class="k">self</span>.schema <span class="o">=</span> <span class="s">&quot;my_schema&quot;</span>
+  <span class="k">end</span>
+  <span class="t">MyModel</span>.query.to_sql <span class="c"># SELECT * FROM &quot;my_schema&quot;.&quot;my_models&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="schema=(schema:Clear::SQL::Symbolic?)-class-method">
+      <div class="signature">
+        
+        def self.<strong>schema=</strong>(schema : Clear::SQL::Symbolic?)
+
+        <a class="method-permalink" href="#schema=(schema:Clear::SQL::Symbolic?)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Define the current schema used in PostgreSQL. The value is <code>nil</code> by default, which lead to non-specified
+  schema during the querying, and usage of "public" by PostgreSQL.</p>
+
+<p>This property can be redefined on initialization. Example:</p>
+
+<pre><code class="language-crystal">  <span class="k">class</span> <span class="t">MyModel</span>
+    <span class="k">include</span> <span class="t">Clear</span><span class="t">::</span><span class="t">Model</span>
+
+    <span class="k">self</span>.schema <span class="o">=</span> <span class="s">&quot;my_schema&quot;</span>
+  <span class="k">end</span>
+  <span class="t">MyModel</span>.query.to_sql <span class="c"># SELECT * FROM &quot;my_schema&quot;.&quot;my_models&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="table:Clear::SQL::Symbolic-class-method">
+      <div class="signature">
+        
+        def self.<strong>table</strong> : Clear::SQL::Symbolic
+
+        <a class="method-permalink" href="#table:Clear::SQL::Symbolic-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Return the table name setup for this model.
+By convention, the class name is by default equals to the pluralized underscored string form of the model name.
+Example:</p>
+
+<pre><code class="language-crystal">  <span class="t">MyModel</span> => <span class="s">&quot;my_models&quot;</span>
+  <span class="t">Person</span> => <span class="s">&quot;people&quot;</span>
+  <span class="t">Project</span><span class="t">::</span><span class="t">Info</span> => <span class="s">&quot;project_infos&quot;</span></code></pre>
+
+<p>The property can be updated at initialization to a custom table name:</p>
+
+<pre><code class="language-crystal">  <span class="k">class</span> <span class="t">MyModel</span>
+    <span class="k">include</span> <span class="t">Clear</span><span class="t">::</span><span class="t">Model</span>
+
+    <span class="k">self</span>.table <span class="o">=</span> <span class="s">&quot;another_table_name&quot;</span>
+  <span class="k">end</span>
+  <span class="t">MyModel</span>.query.to_sql <span class="c"># SELECT * FROM &quot;another_table_name&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="table=(table:Clear::SQL::Symbolic)-class-method">
+      <div class="signature">
+        
+        def self.<strong>table=</strong>(table : Clear::SQL::Symbolic)
+
+        <a class="method-permalink" href="#table=(table:Clear::SQL::Symbolic)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Return the table name setup for this model.
+By convention, the class name is by default equals to the pluralized underscored string form of the model name.
+Example:</p>
+
+<pre><code class="language-crystal">  <span class="t">MyModel</span> => <span class="s">&quot;my_models&quot;</span>
+  <span class="t">Person</span> => <span class="s">&quot;people&quot;</span>
+  <span class="t">Project</span><span class="t">::</span><span class="t">Info</span> => <span class="s">&quot;project_infos&quot;</span></code></pre>
+
+<p>The property can be updated at initialization to a custom table name:</p>
+
+<pre><code class="language-crystal">  <span class="k">class</span> <span class="t">MyModel</span>
+    <span class="k">include</span> <span class="t">Clear</span><span class="t">::</span><span class="t">Model</span>
+
+    <span class="k">self</span>.table <span class="o">=</span> <span class="s">&quot;another_table_name&quot;</span>
+  <span class="k">end</span>
+  <span class="t">MyModel</span>.query.to_sql <span class="c"># SELECT * FROM &quot;another_table_name&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="attributes:Hash(String,Clear::SQL::Any)-instance-method">
+      <div class="signature">
+        
+        def <strong>attributes</strong> : Hash(String, Clear::SQL::Any)
+
+        <a class="method-permalink" href="#attributes:Hash(String,Clear::SQL::Any)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Attributes, used when fetch_columns is true</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="cache:Clear::Model::QueryCache?-instance-method">
+      <div class="signature">
+        
+        def <strong>cache</strong> : Clear::Model::QueryCache?
+
+        <a class="method-permalink" href="#cache:Clear::Model::QueryCache?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changed?-instance-method">
+      <div class="signature">
+        
+        def <strong>changed?</strong>
+
+        <a class="method-permalink" href="#changed?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Return <code>true</code> if the model is dirty (e.g. one or more fields
+  have been changed.). Return <code>false</code> otherwise.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clear_change_flags-instance-method">
+      <div class="signature">
+        
+        def <strong>clear_change_flags</strong>
+
+        <a class="method-permalink" href="#clear_change_flags-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Reset the <code><a href="Task.html#changed?-instance-method">#changed?</a></code> flag on all columns</p>
+
+<p>The model behave like its not dirty anymore
+and call to save would apply no changes.</p>
+
+<p>Returns <code>self</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="description:String-instance-method">
+      <div class="signature">
+        
+        def <strong>description</strong> : String
+
+        <a class="method-permalink" href="#description:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the value of <code><a href="Task.html#description:String-instance-method">#description</a></code> column or throw an exception if the column is not defined.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="description=(x:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>description=</strong>(x : String)
+
+        <a class="method-permalink" href="#description=(x:String)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Setter for <code><a href="Task.html#description:String-instance-method">#description</a></code> column.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="description_column:Clear::Model::Column(String,Clear::Model::Converter::StringConverter)-instance-method">
+      <div class="signature">
+        
+        def <strong>description_column</strong> : Clear::Model::Column(String, Clear::Model::Converter::StringConverter)
+
+        <a class="method-permalink" href="#description_column:Clear::Model::Column(String,Clear::Model::Converter::StringConverter)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the column object used to manage <code><a href="Task.html#description:String-instance-method">#description</a></code> field</p>
+
+<p>See <code>Clear::Model::Column</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>id</strong> : Int32
+
+        <a class="method-permalink" href="#id:Int32-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the value of <code><a href="Task.html#id:Int32-instance-method">#id</a></code> column or throw an exception if the column is not defined.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id=(x:Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>id=</strong>(x : Int32)
+
+        <a class="method-permalink" href="#id=(x:Int32)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Setter for <code><a href="Task.html#id:Int32-instance-method">#id</a></code> column.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id_column:Clear::Model::Column(Int32,Clear::Model::Converter::Int32Converter)-instance-method">
+      <div class="signature">
+        
+        def <strong>id_column</strong> : Clear::Model::Column(Int32, Clear::Model::Converter::Int32Converter)
+
+        <a class="method-permalink" href="#id_column:Clear::Model::Column(Int32,Clear::Model::Converter::Int32Converter)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the column object used to manage <code><a href="Task.html#id:Int32-instance-method">#id</a></code> field</p>
+
+<p>See <code>Clear::Model::Column</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="invalidate_caches:self-instance-method">
+      <div class="signature">
+        
+        def <strong>invalidate_caches</strong> : <span class="k">self</span>
+
+        <a class="method-permalink" href="#invalidate_caches:self-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Invalidate local-to-relation cache and eager-loading cache.
+Useful to forcefully query again when calling relation defined method</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>name</strong> : String
+
+        <a class="method-permalink" href="#name:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the value of <code><a href="Task.html#name:String-instance-method">#name</a></code> column or throw an exception if the column is not defined.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name=(x:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>name=</strong>(x : String)
+
+        <a class="method-permalink" href="#name=(x:String)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Setter for <code><a href="Task.html#name:String-instance-method">#name</a></code> column.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name_column:Clear::Model::Column(String,Clear::Model::Converter::StringConverter)-instance-method">
+      <div class="signature">
+        
+        def <strong>name_column</strong> : Clear::Model::Column(String, Clear::Model::Converter::StringConverter)
+
+        <a class="method-permalink" href="#name_column:Clear::Model::Column(String,Clear::Model::Converter::StringConverter)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the column object used to manage <code><a href="Task.html#name:String-instance-method">#name</a></code> field</p>
+
+<p>See <code>Clear::Model::Column</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reset(**t:**T)forallT-instance-method">
+      <div class="signature">
+        
+        def <strong>reset</strong>(**t : **T) forall T
+
+        <a class="method-permalink" href="#reset(**t:**T)forallT-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>reset flavors</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reset(from_json:JSON::Any)-instance-method">
+      <div class="signature">
+        
+        def <strong>reset</strong>(from_json : JSON::Any)
+
+        <a class="method-permalink" href="#reset(from_json:JSON::Any)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reset(t:NamedTuple)-instance-method">
+      <div class="signature">
+        
+        def <strong>reset</strong>(t : NamedTuple)
+
+        <a class="method-permalink" href="#reset(t:NamedTuple)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reset(h:Hash(String,_))-instance-method">
+      <div class="signature">
+        
+        def <strong>reset</strong>(h : Hash(String, _))
+
+        <a class="method-permalink" href="#reset(h:Hash(String,_))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set the model fields from hash</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="reset(h:Hash(Symbol,_))-instance-method">
+      <div class="signature">
+        
+        def <strong>reset</strong>(h : Hash(Symbol, _))
+
+        <a class="method-permalink" href="#reset(h:Hash(Symbol,_))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set the columns from hash</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set(h:Hash(Symbol,_))-instance-method">
+      <div class="signature">
+        
+        def <strong>set</strong>(h : Hash(Symbol, _))
+
+        <a class="method-permalink" href="#set(h:Hash(Symbol,_))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set the columns from hash</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set(h:Hash(String,_))-instance-method">
+      <div class="signature">
+        
+        def <strong>set</strong>(h : Hash(String, _))
+
+        <a class="method-permalink" href="#set(h:Hash(String,_))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set the model fields from hash</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set(t:NamedTuple)-instance-method">
+      <div class="signature">
+        
+        def <strong>set</strong>(t : NamedTuple)
+
+        <a class="method-permalink" href="#set(t:NamedTuple)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set(from_json:JSON::Any)-instance-method">
+      <div class="signature">
+        
+        def <strong>set</strong>(from_json : JSON::Any)
+
+        <a class="method-permalink" href="#set(from_json:JSON::Any)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set(**t:**T)forallT-instance-method">
+      <div class="signature">
+        
+        def <strong>set</strong>(**t : **T) forall T
+
+        <a class="method-permalink" href="#set(**t:**T)forallT-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from module Clear::Model::HasColumns
+            </div>
+          
+          <p>Set one or multiple columns to a specific value
+This two are equivalents:</p>
+
+<pre><code class="language-crystal">model.set(a: <span class="n">1</span>)
+model.a <span class="o">=</span> <span class="n">1</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set_from_json(string_or_io:String|IO,trusted:Bool=false)-instance-method">
+      <div class="signature">
+        
+        def <strong>set_from_json</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#set_from_json(string_or_io:String%7CIO,trusted:Bool=false)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set the fields from json passed as argument
+Trusted flag set to true will allow mass assignment without protection, FALSE by default</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_h(full=false):Hash(String,Clear::SQL::Any)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_h</strong>(full = <span class="n">false</span>) : Hash(String, Clear::SQL::Any)
+
+        <a class="method-permalink" href="#to_h(full=false):Hash(String,Clear::SQL::Any)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Return a hash version of the columns of this model.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_json(emit_nulls:Bool=false)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_json</strong>(emit_nulls : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#to_json(emit_nulls:Bool=false)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_json(json,emit_nulls=false)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_json</strong>(json, emit_nulls = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#to_json(json,emit_nulls=false)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="update_from_json(string_or_io:String|IO,trusted:Bool=false)-instance-method">
+      <div class="signature">
+        
+        def <strong>update_from_json</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#update_from_json(string_or_io:String%7CIO,trusted:Bool=false)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set the fields from json passed as argument and call <code>save</code> on the object
+Trusted flag set to true will allow mass assignment without protection, FALSE by default</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="update_from_json!(string_or_io:String|IO,trusted:Bool=false)-instance-method">
+      <div class="signature">
+        
+        def <strong>update_from_json!</strong>(string_or_io : String | IO, trusted : Bool = <span class="n">false</span>)
+
+        <a class="method-permalink" href="#update_from_json!(string_or_io:String%7CIO,trusted:Bool=false)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Set the fields from json passed as argument and call <code>save!</code> on the object
+Trusted flag set to true will allow mass assignment without protection, FALSE by default</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="update_h:Hash(String,Clear::SQL::Any)-instance-method">
+      <div class="signature">
+        
+        def <strong>update_h</strong> : Hash(String, Clear::SQL::Any)
+
+        <a class="method-permalink" href="#update_h:Hash(String,Clear::SQL::Any)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generate the hash for update request (like during save)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="validate_fields_presence-instance-method">
+      <div class="signature">
+        
+        def <strong>validate_fields_presence</strong>
+
+        <a class="method-permalink" href="#validate_fields_presence-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>For each column, ensure than when needed the column has present
+information into it.</p>
+
+<p>This method is called on validation.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

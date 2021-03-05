@@ -1,11 +1,10 @@
 require "clear"
+require "db"
 require "option_parser"
 require "./constants"
 
-
-#initialise PostgreSQL database connection
+# initialise ORM
 Clear::SQL.init("postgres://postgres:postgrespassword@localhost:5433/tododatabase")
-#  ,connection_pool_size: 5)   #prepares 5 connections to the database
 
 # Server defaults
 port = App::DEFAULT_PORT

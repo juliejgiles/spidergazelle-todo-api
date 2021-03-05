@@ -13,6 +13,10 @@ dependencies:
     github: anykeyh/clear
     branch: master
 
+  #Installing Postgres driver for Crystal (crystal-pg) https://github.com/will/crystal-pg
+  pg:
+    github: will/crystal-pg
+
   # Extends ENV to read values injected by docker and kubernetes secrets
   secrets-env:
     github: place-labs/secrets-env

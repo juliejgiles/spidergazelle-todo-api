@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.35.1">
+<meta name="crystal_docs.project_version" content="main-dev">
+<meta name="crystal_docs.project_name" content="spider-gazelle">
+
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+  <meta name="repository-name" content="spider-gazelle">
+  <title>spider-gazelle main-dev</title>
+  <script type="text/javascript">
+  CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          spider-gazelle
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main-dev
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="spider-gazelle/App" data-name="app">
+      <a href="App.html">App</a>
+      
+    </li>
+  
+  <li class=" " data-id="spider-gazelle/Application" data-name="application">
+      <a href="Application.html">Application</a>
+      
+    </li>
+  
+  <li class="parent " data-id="spider-gazelle/Task" data-name="task">
+      <a href="Task.html">Task</a>
+      
+        <ul>
+  
+  <li class=" " data-id="spider-gazelle/Task/Collection" data-name="task::collection">
+      <a href="Task/Collection.html">Collection</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="spider-gazelle/TasksController" data-name="taskscontroller">
+      <a href="TasksController.html">TasksController</a>
+      
+    </li>
+  
+  <li class=" " data-id="spider-gazelle/Welcome" data-name="welcome">
+      <a href="Welcome.html">Welcome</a>
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1><a id="spider-gazelle-application-template" class="anchor" href="#spider-gazelle-application-template">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Spider-Gazelle Application Template</h1>
+
+<p><a href="https://travis-ci.org/spider-gazelle/spider-gazelle"><img src="https://travis-ci.org/spider-gazelle/spider-gazelle.svg?branch=master" alt="Build Status"/></a></p>
+
+<p>Clone this repository to start building your own spider-gazelle based application.
+This is a template and as such, Do What the Fuck You Want To</p>
+
+<h2><a id="documentation" class="anchor" href="#documentation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Documentation</h2>
+
+<p>Detailed documentation and guides available: https://spider-gazelle.net/</p>
+
+<ul><li><a href="https://github.com/spider-gazelle/action-controller">Action Controller</a> base class for building <a href="http://guides.rubyonrails.org/action_controller_overview.html">Controllers</a></li><li><a href="https://github.com/spider-gazelle/active-model">Active Model</a> base class for building <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORMs</a></li><li><a href="https://github.com/luckyframework/habitat">Habitat</a> configuration and settings for Crystal projects</li><li><a href="https://github.com/tbrand/router.cr">router.cr</a> base request handling</li><li><a href="https://github.com/luislavena/radix">Radix</a> Radix Tree implementation for request routing</li><li><a href="https://crystal-lang.org/api/latest/HTTP/Server.html">HTTP::Server</a> built-in Crystal Lang HTTP server</li><ul><li>Request</li><li>Response</li><li>Cookies</li><li>Headers</li><li>Params etc</li></ul></ul>
+
+<p>Spider-Gazelle builds on the amazing performance of <strong>router.cr</strong> <a href="https://github.com/tbrand/which_is_the_fastest">here</a>.:rocket:</p>
+
+<h2><a id="testing" class="anchor" href="#testing">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Testing</h2>
+
+<p><code>crystal spec</code></p>
+
+<ul><li>to run in development mode <code>crystal ./src/app.cr</code></li></ul>
+
+<h2><a id="compiling" class="anchor" href="#compiling">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Compiling</h2>
+
+<p><code>crystal build ./src/app.cr</code></p>
+
+<h3><a id="deploying" class="anchor" href="#deploying">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Deploying</h3>
+
+<p>Once compiled you are left with a binary <code>./app</code></p>
+
+<ul><li>for help <code>./app --help</code></li><li>viewing routes <code>./app --routes</code></li><li>run on a different port or host <code>./app -b 0.0.0.0 -p 80</code></li></ul>
+</div>
+</body>
+</html>
