@@ -1,0 +1,7 @@
+name: todo-list-api
+on: [push, pul_request]
+jobs:
+  check-bats-version:
+    runs-on: ubunto-latest
+    steps:
+      - uses: actions/checkout@main
