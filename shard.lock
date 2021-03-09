@@ -40,6 +40,10 @@ shards:
     git: https://github.com/caspiano/http-params-serializable.git
     version: 0.4.1+git.commit.1610a206f676269c1b862281cda3ed82548ced34
 
+  icr:
+    git: https://github.com/crystal-community/icr.git
+    version: 0.8.0+git.commit.8c57cd7c1fdf8088cb05c1587bd6c40d244a8a80
+
   inflector:
     git: https://github.com/phoffer/inflector.cr.git
     version: 0.1.8
@@ -59,6 +63,10 @@ shards:
   pg:
     git: https://github.com/will/crystal-pg.git
     version: 0.23.1+git.commit.cafe039cfd6340a271e81603943bb1975f5a91f5
+
+  readline:
+    git: https://github.com/crystal-lang/crystal-readline.git
+    version: 0.1.0+git.commit.0fb7d186da8e1b157998d98d1c96e99699b791eb
 
   secrets-env:
     git: https://github.com/place-labs/secrets-env.git

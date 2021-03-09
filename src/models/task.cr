@@ -1,12 +1,17 @@
-include "active-model"
-include "clear"
+require "active-model"
+require "clear"
 
-class Task < ActiveModel::Model
-    include Clear::Model
+class Task
+  include Clear::Model
 
-    column name : String
-    column description : String
-    column done : Bool
+  self.table = "tasks"
 
-    column id : Int32, primary: true, presence: false
+  column name : String
+  column description : String
+  column done : Bool
+
+  column id : Int32, primary: true, presence: false
 end
+
+pp Task.query.first
+
