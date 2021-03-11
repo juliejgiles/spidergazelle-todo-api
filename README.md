@@ -1,35 +1,23 @@
-# Spider-Gazelle Application Template
-
-[![Build Status](https://travis-ci.org/spider-gazelle/spider-gazelle.svg?branch=master)](https://travis-ci.org/spider-gazelle/spider-gazelle)
-
-Clone this repository to start building your own spider-gazelle based application.
-This is a template and as such, Do What the Fuck You Want To
+# Spider-Gazelle To-do-list API
 
 ## Documentation
 
-Detailed documentation and guides available: https://spider-gazelle.net/
+ROUTES:
 
-* [Action Controller](https://github.com/spider-gazelle/action-controller) base class for building [Controllers](http://guides.rubyonrails.org/action_controller_overview.html)
-* [Active Model](https://github.com/spider-gazelle/active-model) base class for building [ORMs](https://en.wikipedia.org/wiki/Object-relational_mapping)
-* [Habitat](https://github.com/luckyframework/habitat) configuration and settings for Crystal projects
-* [router.cr](https://github.com/tbrand/router.cr) base request handling
-* [Radix](https://github.com/luislavena/radix) Radix Tree implementation for request routing
-* [HTTP::Server](https://crystal-lang.org/api/latest/HTTP/Server.html) built-in Crystal Lang HTTP server
-  * Request
-  * Response
-  * Cookies
-  * Headers
-  * Params etc
+- GET **/tasks** to view all tasks
+- GET **/tasks/:id** to view one task
+- POST **/tasks** to add a new task
+- PATCH **/tasks/:id** to update a task
+- DELETE **/tasks/:id** to delete a task
 
+## Running app
 
-Spider-Gazelle builds on the amazing performance of **router.cr** [here](https://github.com/tbrand/which_is_the_fastest).:rocket:
-
+- Run `crystal /src/app.cr` to run in development mode
 
 ## Testing
 
-`crystal spec`
-
-* to run in development mode `crystal ./src/app.cr`
+- Run `crystal spec`
+- to run in development mode `crystal ./src/app.cr`
 
 ## Compiling
 
@@ -39,6 +27,6 @@ Spider-Gazelle builds on the amazing performance of **router.cr** [here](https:/
 
 Once compiled you are left with a binary `./app`
 
-* for help `./app --help`
-* viewing routes `./app --routes`
-* run on a different port or host `./app -b 0.0.0.0 -p 80`
+- for help `./app --help`
+- viewing routes `./app --routes`
+- run on a different port or host `./app -b 0.0.0.0 -p 80`

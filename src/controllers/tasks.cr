@@ -68,7 +68,7 @@ class TasksController < ActionController::Base
 
   end
 
-  #CORS - Allowed origins and allowed methods at which requests can be made
+  #CORS - allowed methods for which requests can be made
   #https://iridakos.com/programming/2018/03/28/custom-http-headers
     response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS"
 
