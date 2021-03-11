@@ -2,6 +2,11 @@ FROM crystallang/crystal:0.36.0-alpine
 ADD . /src
 WORKDIR /src
 
+#Added dependencies
+COPY shard.yml /src/shard.yml
+COPY shard.lock /src/shard.lock
+RUN shards install
+
 # Add trusted CAs for communicating with external services
 RUN apk update && apk add --no-cache ca-certificates tzdata && update-ca-certificates
 
@@ -33,7 +38,7 @@ RUN ldd bin/app | tr -s '[:blank:]' '\n' | grep '^/' | \
 
 # Build a minimal docker image
 FROM scratch
-WORKDIR /
+WORKDIR /src/app.cr
 ENV PATH=$PATH:/
 COPY --from=0 /src/deps /
 COPY --from=0 /src/bin/app /app

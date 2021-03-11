@@ -61,6 +61,21 @@
       
     </li>
   
+  <li class="parent " data-id="spider-gazelle/CreateTable1" data-name="createtable1">
+      <a href="CreateTable1.html">CreateTable1</a>
+      
+        <ul>
+  
+  <li class=" " data-id="spider-gazelle/CreateTable1/IrreversibleMigration" data-name="createtable1::irreversiblemigration">
+      <a href="CreateTable1/IrreversibleMigration.html">IrreversibleMigration</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
   <li class="parent open current" data-id="spider-gazelle/Task" data-name="task">
       <a href="Task.html">Task</a>
       
@@ -78,11 +93,6 @@
   
   <li class=" " data-id="spider-gazelle/TasksController" data-name="taskscontroller">
       <a href="TasksController.html">TasksController</a>
-      
-    </li>
-  
-  <li class=" " data-id="spider-gazelle/Welcome" data-name="welcome">
-      <a href="Welcome.html">Welcome</a>
       
     </li>
   
@@ -179,7 +189,7 @@
   <dl>
     
       <dt class="entry-const" id="COLUMNS">
-        <strong>COLUMNS</strong> = <code>{<span class="s">&quot;name&quot;</span> => {<span class="k">type</span>: <span class="t">String</span>, primary: <span class="n">false</span>, converter: <span class="s">&quot;String&quot;</span>, db_column_name: <span class="s">&quot;name&quot;</span>, crystal_variable_name: name, presence: <span class="n">true</span>, mass_assign: <span class="n">true</span>}, <span class="s">&quot;description&quot;</span> => {<span class="k">type</span>: <span class="t">String</span>, primary: <span class="n">false</span>, converter: <span class="s">&quot;String&quot;</span>, db_column_name: <span class="s">&quot;description&quot;</span>, crystal_variable_name: description, presence: <span class="n">true</span>, mass_assign: <span class="n">true</span>}, <span class="s">&quot;id&quot;</span> => {<span class="k">type</span>: <span class="t">Int32</span>, primary: <span class="n">true</span>, converter: <span class="s">&quot;Int32&quot;</span>, db_column_name: <span class="s">&quot;id&quot;</span>, crystal_variable_name: id, presence: <span class="n">false</span>, mass_assign: <span class="n">true</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+        <strong>COLUMNS</strong> = <code>{<span class="s">&quot;name&quot;</span> => {<span class="k">type</span>: <span class="t">String</span>, primary: <span class="n">false</span>, converter: <span class="s">&quot;String&quot;</span>, db_column_name: <span class="s">&quot;name&quot;</span>, crystal_variable_name: name, presence: <span class="n">true</span>, mass_assign: <span class="n">true</span>}, <span class="s">&quot;description&quot;</span> => {<span class="k">type</span>: <span class="t">String</span>, primary: <span class="n">false</span>, converter: <span class="s">&quot;String&quot;</span>, db_column_name: <span class="s">&quot;description&quot;</span>, crystal_variable_name: description, presence: <span class="n">true</span>, mass_assign: <span class="n">true</span>}, <span class="s">&quot;done&quot;</span> => {<span class="k">type</span>: <span class="t">Bool</span>, primary: <span class="n">false</span>, converter: <span class="s">&quot;Bool&quot;</span>, db_column_name: <span class="s">&quot;done&quot;</span>, crystal_variable_name: done, presence: <span class="n">true</span>, mass_assign: <span class="n">true</span>}, <span class="s">&quot;id&quot;</span> => {<span class="k">type</span>: <span class="t">Int32</span>, primary: <span class="n">true</span>, converter: <span class="s">&quot;Int32&quot;</span>, db_column_name: <span class="s">&quot;id&quot;</span>, crystal_variable_name: id, presence: <span class="n">false</span>, mass_assign: <span class="n">true</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
       </dt>
       
     
@@ -477,6 +487,27 @@
         <a href="#description_column:Clear::Model::Column(String,Clear::Model::Converter::StringConverter)-instance-method" class="signature"><strong>#description_column</strong> : Clear::Model::Column(String, Clear::Model::Converter::StringConverter)</a>
         
           <div class="summary"><p>Returns the column object used to manage <code><a href="Task.html#description:String-instance-method">#description</a></code> field</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#done:Bool-instance-method" class="signature"><strong>#done</strong> : Bool</a>
+        
+          <div class="summary"><p>Returns the value of <code><a href="Task.html#done:Bool-instance-method">#done</a></code> column or throw an exception if the column is not defined.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#done=(x:Bool)-instance-method" class="signature"><strong>#done=</strong>(x : Bool)</a>
+        
+          <div class="summary"><p>Setter for <code><a href="Task.html#done:Bool-instance-method">#done</a></code> column.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#done_column:Clear::Model::Column(Bool,Clear::Model::Converter::BoolConverter)-instance-method" class="signature"><strong>#done_column</strong> : Clear::Model::Column(Bool, Clear::Model::Converter::BoolConverter)</a>
+        
+          <div class="summary"><p>Returns the column object used to manage <code><a href="Task.html#done:Bool-instance-method">#done</a></code> field</p></div>
         
       </li>
     
@@ -1740,6 +1771,65 @@ and call to save would apply no changes.</p>
         <div class="doc">
           
           <p>Returns the column object used to manage <code><a href="Task.html#description:String-instance-method">#description</a></code> field</p>
+
+<p>See <code>Clear::Model::Column</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="done:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>done</strong> : Bool
+
+        <a class="method-permalink" href="#done:Bool-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the value of <code><a href="Task.html#done:Bool-instance-method">#done</a></code> column or throw an exception if the column is not defined.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="done=(x:Bool)-instance-method">
+      <div class="signature">
+        
+        def <strong>done=</strong>(x : Bool)
+
+        <a class="method-permalink" href="#done=(x:Bool)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Setter for <code><a href="Task.html#done:Bool-instance-method">#done</a></code> column.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="done_column:Clear::Model::Column(Bool,Clear::Model::Converter::BoolConverter)-instance-method">
+      <div class="signature">
+        
+        def <strong>done_column</strong> : Clear::Model::Column(Bool, Clear::Model::Converter::BoolConverter)
+
+        <a class="method-permalink" href="#done_column:Clear::Model::Column(Bool,Clear::Model::Converter::BoolConverter)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the column object used to manage <code><a href="Task.html#done:Bool-instance-method">#done</a></code> field</p>
 
 <p>See <code>Clear::Model::Column</code></p>
         </div>

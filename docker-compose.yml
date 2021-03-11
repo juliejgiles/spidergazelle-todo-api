@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  db:
+    # https://hub.docker.com/_/postgres/
+    image: postgres
+    restart: always
+    volumes: 
+      # - ./init.sql:docker-entrypoint-initdb.d/init.sql
+      - ./tmp/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tododatabase
+  web:
+    image: todo-list_web
+    build: .
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      POSTGRES_URL: postgres://postgres:postgres@db:8080/tododatabase
+    restart: always

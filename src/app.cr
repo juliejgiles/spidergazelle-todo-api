@@ -2,18 +2,14 @@ require "clear"
 require "db"
 require "option_parser"
 require "./constants"
-require "./controllers/tasks.cr"
-require "./models/task.cr"
-# require "./views/index.ecr"
-require "./db/migrate/1_migration.cr"
+
 
 # database URI
 # db_uri = "postgres://postgres:postgrespassword@localhost:5433/tododatabase";
-db_uri = "postgres://julie:postgrespassword@localhost:5433/tododatabase";
+# db_uri = "postgres://postgres:postgrespassword@localhost:5433/tododatabase";
 
 # Initialise Clear ORM on start-up
-# Clear::SQL.init("default": "postgres://postgres:postgrespassword@localhost:5433/tododatabase")
-Clear::SQL.init("default": "postgres://julie:postgrespassword@localhost:5433/tododatabase")
+Clear::SQL.init(App::POSTGRES_URL)
 
 # Running Clear ORM migrations on start-up
 Clear::Migration::Manager.instance.apply_all
@@ -21,6 +17,11 @@ Clear::Migration::Manager.instance.apply_all
 # using Clear ORM command line
 Clear.with_cli do
 end
+
+require "./controllers/tasks.cr"
+require "./models/task.cr"
+# require "./views/index.ecr"
+require "./db/migrate/1_migration.cr"
 
 # Server defaults
 port = App::DEFAULT_PORT
