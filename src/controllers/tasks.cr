@@ -21,21 +21,31 @@ class TasksController < ActionController::Base
 
   # GET /tasks/:id
   def show
+    respond_with do
+      html template("show.ecr")
+      text "#{task1}"
+      json ({task: task1})
+    end
   end
 
   # GET "/tasks/new"
-  def new
-  end
+  # def new
+  # end
 
   # POST /tasks/
   def create
-    # task = Task.create(name: "test", description: "test", done: false)
-    # task.save
-    # respond_with do
-    #         html template("index.ecr")
-    #         text "#{task}.to_json"
-    #         json({task: task})
-    # end
+   
+    new_task = Task.new(JSON.parse(request.body.as(IO)))
+    new_task.save!
+    respond_with do
+      html template("new_task.ecr")
+      text "#{new_task}"
+      json ({tasks: new_task})
+    end 
+
+    if !new_task.save 
+      raise Exception.new("Could not save task")
+    end
   end
 
   # PATCH /tasks/:id
