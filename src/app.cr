@@ -3,7 +3,6 @@ require "db"
 require "option_parser"
 require "./constants"
 
-
 # database URI
 # db_uri = "postgres://postgres:postgrespassword@localhost:5433/tododatabase";
 # db_uri = "postgres://postgres:postgrespassword@localhost:5433/tododatabase";

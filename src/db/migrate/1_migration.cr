@@ -5,6 +5,7 @@ class CreateTable1
 
   # Error message fro reverting a migration that is irreversible
   include Clear::ErrorMessages
+
   class IrreversibleMigration < Exception; end
 
   def change(direction)
@@ -17,4 +18,3 @@ class CreateTable1
     end
   end
 end
-

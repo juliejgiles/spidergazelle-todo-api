@@ -12,5 +12,3 @@ class Task
 
   column id : Int32, primary: true, presence: false
 end
-
-
