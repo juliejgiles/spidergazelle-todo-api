@@ -12,20 +12,22 @@ class TasksController < ActionController::Base
   # GET /tasks/
   def index
     array_of_tasks = Task.query.select.to_a
-    respond_with do
-      html template("index.ecr")
-      text "#{array_of_tasks}"
-      json ({tasks: array_of_tasks})
-    end
+    render xml: array_of_tasks
+    # respond_with do
+    #   html template("index.ecr")
+    #   text "#{array_of_tasks}"
+    #   json ({tasks: array_of_tasks})
+    # end
   end
 
   # GET /tasks/:id
   def show
-    respond_with do
-      html template("show.ecr")
-      text "#{task1}"
-      json ({task: task1})
-    end
+    render xml: task
+    # respond_with do
+    #   html template("show.ecr")
+    #   text "#{task1}"
+    #   json ({task: task1})
+    # end
   end
 
   # GET "/tasks/new"
@@ -37,11 +39,13 @@ class TasksController < ActionController::Base
    
     new_task = Task.new(JSON.parse(request.body.as(IO)))
     new_task.save!
-    respond_with do
-      html template("new_task.ecr")
-      text "#{new_task}"
-      json ({tasks: new_task})
-    end 
+    render xml: new_task
+    # respond_with do
+    #   # html template("new_task.ecr")
+    #   text "#{new_task}"
+    #   json ({tasks: new_task})
+    #   array [new_task]
+    # end 
 
     if !new_task.save 
       raise Exception.new("Could not save task")
@@ -57,7 +61,7 @@ class TasksController < ActionController::Base
   end
 
   private def find_task
-    # task = Task.find(params[:id])
-    task = Task.query.where { raw("tasks.id") == id }
+    task = Task.find(params[:id])
+    # task = Task.query.where { raw("tasks.id") == :id }
   end
 end
