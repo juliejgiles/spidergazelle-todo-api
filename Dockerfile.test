@@ -3,11 +3,11 @@ ADD . /src
 WORKDIR /src
 
 #Added dependencies
-COPY shard.yml /src/shard.yml
-COPY shard.lock /src/shard.lock
-RUN shards install
+# COPY shard.yml /src/shard.yml
+# COPY shard.lock /src/shard.lock
+# RUN shards install
 
 # Run the app binding on port 8080
 EXPOSE 8080
-HEALTHCHECK CMD ["crystal", "spec", "http://127.0.0.1:8080/"]
+# HEALTHCHECK CMD ["crystal", "spec", "http://127.0.0.1:8080/"]
 CMD ["crystal", "spec"]

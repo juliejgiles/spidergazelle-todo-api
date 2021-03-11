@@ -2,6 +2,11 @@ FROM crystallang/crystal:0.36.0-alpine
 ADD . /src
 WORKDIR /src
 
+#DB initialisation
+FROM library/postgres
+COPY init.sql /docker-entrypoint-initdb.d/
+
+
 #Added dependencies
 COPY shard.yml /src/shard.yml
 COPY shard.lock /src/shard.lock
