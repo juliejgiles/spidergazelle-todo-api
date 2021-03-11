@@ -4,13 +4,13 @@ require "json" # https://crystal-lang.org/api/0.18.7/JSON/Builder.html
 require "http/client"
 
 class TasksController < ActionController::Base
-  #Root
+  # Root
   base "/tasks"
 
   before_action :find_task, only: [:show, :update, :destroy]
   getter :array_of_tasks, :task
 
-  #CRUD methods
+  # CRUD methods
   # GET /tasks/
   def index
     array_of_tasks = Task.query.select.to_a
@@ -38,7 +38,6 @@ class TasksController < ActionController::Base
 
   # POST /tasks/
   def create
-   
     new_task = Task.new(JSON.parse(request.body.as(IO)))
     new_task.save!
     render json: ({new_task, 201})
@@ -47,9 +46,9 @@ class TasksController < ActionController::Base
     #   text "#{new_task}"
     #   json ({tasks: new_task})
     #   array [new_task]
-    # end 
+    # end
 
-    if !new_task.save 
+    if !new_task.save
       raise Exception.new("Could not save task")
     end
   end
@@ -62,17 +61,16 @@ class TasksController < ActionController::Base
   def destroy
     task.delete
     render json: ({array_of_tasks, 200})
-    if !task.delete 
+    if !task.delete
       raise Exception.new("Could not delete task")
     end
-
   end
 
-  #CORS - allowed methods for which requests can be made
-  #https://iridakos.com/programming/2018/03/28/custom-http-headers
-    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS"
+  # CORS - allowed methods for which requests can be made
+  # https://iridakos.com/programming/2018/03/28/custom-http-headers
+  response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS"
 
   private def find_task
-    task = Task.find(params[:id].to_i) || array_of_tasks.find( raw("tasks.id") == params[:id].to_i)  
+    task = Task.find(params[:id].to_i) || array_of_tasks.find(raw("tasks.id") == params[:id].to_i)
   end
 end
