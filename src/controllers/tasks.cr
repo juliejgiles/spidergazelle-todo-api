@@ -2,19 +2,22 @@ require "action-controller"
 require "../models/task.cr"
 require "json" # https://crystal-lang.org/api/0.18.7/JSON/Builder.html
 require "http/client"
+require "log" #https://crystal-lang.org/api/0.34.0/Log.html
 
 class TasksController < ActionController::Base
   # Root
-  base "/tasks"
+  base "/tasks" 
 
   before_action :find_task, only: [:show, :update, :destroy]
-  getter :array_of_tasks, :task
+  #Lazy initialization via getter macro - https://crystal-lang.org/api/0.36.1/Object.html#getter(*names,&block)-macro
+  getter task : Task { find_task }
 
   # CRUD methods
   # GET /tasks/
   def index
     array_of_tasks = Task.query.select.to_a
-    render json: ({array_of_tasks, 200})
+    array_of_tasks.size == 0 ?  (render text: "No records") : (render text: array_of_tasks.to_json)
+    
     # respond_with do
     #   html template("index.ecr")
     #   text "#{array_of_tasks}"
@@ -24,23 +27,21 @@ class TasksController < ActionController::Base
 
   # GET /tasks/:id
   def show
-    render json: ({task, 200})
+    
+    Log.debug { show }
+    render text: task.to_json
     # respond_with do
     #   html template("show.ecr")
-    #   text "#{task1}"
-    #   json ({task: task1})
+    #   text "#{task}"
+    #   json ({task: task})
     # end
   end
-
-  # GET "/tasks/new"
-  # def new
-  # end
 
   # POST /tasks/
   def create
     new_task = Task.new(JSON.parse(request.body.as(IO)))
     new_task.save!
-    render json: ({new_task, 201})
+    render text: new_task.to_json
     # respond_with do
     #   # html template("new_task.ecr")
     #   text "#{new_task}"
@@ -55,22 +56,43 @@ class TasksController < ActionController::Base
 
   # PATCH /tasks/:id
   def update
+    # task = Task.find(params[:id]) 
+    # user_input = JSON.parse(request.body.as(IO)).as_h
+    # task["name"] = user_input["title"].to_s if user_input.has_key?("title")
+    # task["description"] = user_input["description"].to_s if user_input.has_key?("description")
+    # task["done"] = true if user_input.has_key?("done" ) && user_input.has_value?("true" || true )
+    # task.save! 
+    # render text: task.to_json
+    # if !new_task.save
+    #   raise Exception.new("Could not save task")
+    # end
   end
 
   # DELETE /tasks/:id
   def destroy
-    task.delete
-    render json: ({array_of_tasks, 200})
-    if !task.delete
-      raise Exception.new("Could not delete task")
-    end
+    # task.delete
+    # render text: Task.query.select.to_a.to_json
+    # if !task.delete
+    #   raise Exception.new("Could not delete task")
+    # end
   end
 
   # CORS - allowed methods for which requests can be made
   # https://iridakos.com/programming/2018/03/28/custom-http-headers
-  response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS"
+  options "/" do 
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PATCH, DELETE, HEAD, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+  end 
+  options "/:id" do 
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PATCH, DELETE, HEAD, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+  end 
 
   private def find_task
-    task = Task.find(params[:id].to_i) || array_of_tasks.find(raw("tasks.id") == params[:id].to_i)
+    task = Task.find(params["id"]) 
+    # Task.query.select.to_a.find(raw("tasks.id") == params["id"])
   end
 end
+
