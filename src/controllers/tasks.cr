@@ -107,3 +107,14 @@ class TasksController < ActionController::Base
     # Task.query.select.to_a.find(raw("tasks.id") == params["id"])
   end
 end
+
+
+#https://crystal-lang.org/api/0.36.1/JSON/Serializable.html
+class TaskBody
+  include JSON::Serializable
+
+  getter name : String
+  getter description : String
+  getter done : Bool
+  getter id : Int32
+end
