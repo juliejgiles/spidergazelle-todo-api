@@ -18,10 +18,11 @@ if App.running_in_production?
   ::Log.setup "*", :warn, App::LOG_BACKEND
 else
   log_level = Log::Severity::Debug
-  ::Log.setup "*", :info, App::LOG_BACKEND
+  ::Log.setup "*", :log, App::LOG_BACKEND
 end
+
 Log.builder.bind "action-controller.*", log_level, App::LOG_BACKEND
-Log.builder.bind "#{App::NAME}.*", log_level, App::LOG_BACKEND
+Log.builder.bind "controller.*", log_level, App::LOG_BACKEND
 
 # Filter out sensitive params that shouldn't be logged
 filter_params = ["password", "bearer_token"]

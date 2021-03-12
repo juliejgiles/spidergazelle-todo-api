@@ -1,71 +1,83 @@
 require "action-controller"
 require "../models/task.cr"
-require "json" # https://crystal-lang.org/api/0.18.7/JSON/Builder.html
+require "json"
 require "http/client"
-require "log" #https://crystal-lang.org/api/0.34.0/Log.html
+require "log" # https://crystal-lang.org/api/0.34.0/Log.html
 
 class TasksController < ActionController::Base
+  Log = ::Log.for("controller")
+
   # Root
-  base "/tasks" 
+  base "/tasks"
 
   before_action :find_task, only: [:show, :update, :destroy]
-  #Lazy initialization via getter macro - https://crystal-lang.org/api/0.36.1/Object.html#getter(*names,&block)-macro
+  # Lazy initialization via getter macro - https://crystal-lang.org/api/0.36.1/Object.html#getter(*names,&block)-macro
   getter task : Task { find_task }
 
   # CRUD methods
   # GET /tasks/
   def index
     array_of_tasks = Task.query.select.to_a
-    array_of_tasks.size == 0 ?  (render text: "No records") : (render text: array_of_tasks.to_json)
-    
-    # respond_with do
-    #   html template("index.ecr")
-    #   text "#{array_of_tasks}"
-    #   json ({tasks: array_of_tasks})
-    # end
+    if array_of_tasks.size == 0
+      render text: "No records"
+    else
+      render text: array_of_tasks.to_json
+    end
   end
 
   # GET /tasks/:id
   def show
-    
     Log.debug { show }
     render text: task.to_json
-    # respond_with do
-    #   html template("show.ecr")
-    #   text "#{task}"
-    #   json ({task: task})
-    # end
   end
 
   # POST /tasks/
   def create
-    new_task = Task.new(JSON.parse(request.body.as(IO)))
+    new_task = Task.new(from_json(request.body))
     new_task.save!
     render text: new_task.to_json
-    # respond_with do
-    #   # html template("new_task.ecr")
-    #   text "#{new_task}"
-    #   json ({tasks: new_task})
-    #   array [new_task]
-    # end
 
     if !new_task.save
       raise Exception.new("Could not save task")
     end
   end
 
+  rescue_from JSON::SerializeError do |error|
+    head :bad_request
+  end
+
+  task_body = TaskBody.from_json(request.body.as(IO))
+
   # PATCH /tasks/:id
   def update
-    # task = Task.find(params[:id]) 
-    # user_input = JSON.parse(request.body.as(IO)).as_h
-    # task["name"] = user_input["title"].to_s if user_input.has_key?("title")
-    # task["description"] = user_input["description"].to_s if user_input.has_key?("description")
-    # task["done"] = true if user_input.has_key?("done" ) && user_input.has_value?("true" || true )
-    # task.save! 
-    # render text: task.to_json
-    # if !new_task.save
-    #   raise Exception.new("Could not save task")
-    # end
+    user_input = JSON.parse(request.body.as(IO)).as_h
+    user_input.each do |key, value|
+      key = key.to_s
+
+      # case key
+      # when "name" then task.name = value
+      # when "description" then task.description = value
+      # end
+      # task.done = key == "done" && value == "true"
+      # task.save!
+
+      case key
+        when "name"        then task.name = TaskBody.name
+        when "description" then task.description = TaskBody.description
+        end
+        task.done = key == "done" && value == "true"
+        task.save!
+      end
+
+    render text: task.to_json
+    if !new_task.save
+      raise Exception.new("Could not save task")
+    end
+
+    # respond_with do
+    #     html template("edit.ecr")
+    #   end
+    Log.debug { update }
   end
 
   # DELETE /tasks/:id
@@ -79,20 +91,19 @@ class TasksController < ActionController::Base
 
   # CORS - allowed methods for which requests can be made
   # https://iridakos.com/programming/2018/03/28/custom-http-headers
-  options "/" do 
+  options "/" do
     response.headers["Access-Control-Allow-Origin"] = "*"
     response.headers["Access-Control-Allow-Methods"] = "GET, POST, PATCH, DELETE, HEAD, OPTIONS"
     response.headers["Access-Control-Allow-Headers"] = "Content-Type"
-  end 
-  options "/:id" do 
+  end
+  options "/:id" do
     response.headers["Access-Control-Allow-Origin"] = "*"
     response.headers["Access-Control-Allow-Methods"] = "GET, POST, PATCH, DELETE, HEAD, OPTIONS"
     response.headers["Access-Control-Allow-Headers"] = "Content-Type"
-  end 
+  end
 
   private def find_task
-    task = Task.find(params["id"]) 
+    task = Task.find(params["id"])
     # Task.query.select.to_a.find(raw("tasks.id") == params["id"])
   end
 end
-
