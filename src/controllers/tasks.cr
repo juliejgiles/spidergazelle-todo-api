@@ -3,9 +3,29 @@ require "../models/task.cr"
 require "json"
 require "http/client"
 require "log" # https://crystal-lang.org/api/0.34.0/Log.html
+require "xml"
+
+# https://crystal-lang.org/api/0.36.1/JSON/Serializable.html
+class TaskBody
+  include JSON::Serializable
+
+  getter name : String
+  getter description : String
+  getter done : Bool
+  getter id : Int32
+end
 
 class TasksController < ActionController::Base
   Log = ::Log.for("controller")
+
+  # Error handling
+  rescue_from Error::Base do |exception|
+    render xml: exception, status: 500
+  end
+
+  rescue_from JSON::SerializeError do |error|
+    head :bad_request, text: error.message
+  end
 
   # Root
   base "/tasks"
@@ -38,12 +58,8 @@ class TasksController < ActionController::Base
     render text: new_task.to_json
 
     if !new_task.save
-      raise Exception.new("Could not save task")
+      raise Error.new("Could not save task")
     end
-  end
-
-  rescue_from JSON::SerializeError do |error|
-    head :bad_request
   end
 
   task_body = TaskBody.from_json(request.body.as(IO))
@@ -61,17 +77,18 @@ class TasksController < ActionController::Base
       # task.done = key == "done" && value == "true"
       # task.save!
 
+      task_input = TaskBody.from_json(request.body)
       case key
-        when "name"        then task.name = TaskBody.name
-        when "description" then task.description = TaskBody.description
-        end
-        task.done = key == "done" && value == "true"
-        task.save!
+      when "name"        then task.name = task_input.name
+      when "description" then task.description = task_input.description
       end
+      task.done = key == "done" && value == "true"
+      task.save!
+    end
 
     render text: task.to_json
     if !new_task.save
-      raise Exception.new("Could not save task")
+      raise Error.new("Could not save task")
     end
 
     # respond_with do
@@ -85,7 +102,7 @@ class TasksController < ActionController::Base
     # task.delete
     # render text: Task.query.select.to_a.to_json
     # if !task.delete
-    #   raise Exception.new("Could not delete task")
+    #   raise Error.new("Could not delete task")
     # end
   end
 
@@ -109,12 +126,3 @@ class TasksController < ActionController::Base
 end
 
 
-#https://crystal-lang.org/api/0.36.1/JSON/Serializable.html
-class TaskBody
-  include JSON::Serializable
-
-  getter name : String
-  getter description : String
-  getter done : Bool
-  getter id : Int32
-end
