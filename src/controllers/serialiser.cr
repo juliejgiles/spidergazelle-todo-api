@@ -1,5 +1,3 @@
-require "active-model"
-require "clear"
 require "json"
 
 # https://crystal-lang.org/api/0.36.1/JSON/Serializable.html
@@ -11,3 +9,4 @@ class TaskBody
   getter done : Bool
   getter id : Int32
 end
+

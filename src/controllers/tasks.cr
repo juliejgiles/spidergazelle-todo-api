@@ -1,9 +1,8 @@
 require "action-controller"
-require "clear"
 require "./application.cr"
 require "../models/task.cr"
 require "json"
-require "../helpers/serialiser.cr"
+require "./serialiser.cr"
 require "http/client"
 require "log" # https://crystal-lang.org/api/0.34.0/Log.html
 require "xml"
@@ -22,9 +21,9 @@ class TasksController < Application
     render text: error.message, status: 500
   end
   
-  rescue_from ArgumentError do |exception|
-  #   # render xml: exception, status: 500
-    render text: exception, status: 500
+  rescue_from NotImplementedError do |exception|
+  #   render xml: exception, status: 500
+    render text: exception.message, status: 501
   end
 
   # Root
@@ -37,14 +36,14 @@ class TasksController < Application
     if array_of_tasks.size == 0
       render text: "No records"
     else
-      render text: array_of_tasks.to_json
+      render json: array_of_tasks.to_json
     end
   end
 
   # GET /tasks/:id
   def show
     # Log.debug { show }
-    render text: task.to_json
+    render json: task.to_json
   end
 
   # POST /tasks/
@@ -54,7 +53,7 @@ class TasksController < Application
     render text: new_task.to_json
 
     if !new_task.save
-      puts "Could not save task"
+      raise NotImplementedError.new("Could not save task")
     end
   end
 
@@ -85,7 +84,7 @@ class TasksController < Application
 
     render text: task.to_json
     if !new_task.save
-      puts "Could not save task"
+      raise NotImplementedError.new("Could not save task")
     end
 
     # Log.debug { update }
@@ -94,9 +93,9 @@ class TasksController < Application
   # DELETE /tasks/:id
   def destroy
     task.delete
-    render text: Task.query.select.to_a.to_json
+    render json: Task.query.select.to_a.to_json
     if !task.delete
-      puts "Could not delete task"
+      raise NotImplementedError.new("Could not delete task")
     end
   end
 
