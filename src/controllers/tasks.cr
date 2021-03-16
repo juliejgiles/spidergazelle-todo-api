@@ -1,4 +1,5 @@
 require "action-controller"
+require "clear"
 require "./application.cr"
 require "../models/task.cr"
 require "json"
@@ -7,20 +8,23 @@ require "http/client"
 require "log" # https://crystal-lang.org/api/0.34.0/Log.html
 require "xml"
 
-class TasksController < ActionController::Base
-  include JSON::Serializable
+# class TasksController < ActionController::Base
+class TasksController < Application
+  # include JSON::Serializable
+  
   before_action :find_task, only: [:show, :update, :destroy]
   # Lazy initialization via getter macro - https://crystal-lang.org/api/0.36.1/Object.html#getter(*names,&block)-macro
   getter task : Task { find_task }
-  # Log = ::Log.for("controller")
+  Log = ::Log.for("controller")
 
   # Error handling
-  rescue_from NotImplementedError do |exception|
-    render xml: exception, status: 500
-  end
-
   rescue_from JSON::SerializableError do |error|
     render text: error.message, status: 500
+  end
+  
+  rescue_from ArgumentError do |exception|
+  #   # render xml: exception, status: 500
+    render text: exception, status: 500
   end
 
   # Root
@@ -50,7 +54,7 @@ class TasksController < ActionController::Base
     render text: new_task.to_json
 
     if !new_task.save
-      raise NotImplementedError.new("Could not save task")
+      puts "Could not save task"
     end
   end
 
@@ -81,7 +85,7 @@ class TasksController < ActionController::Base
 
     render text: task.to_json
     if !new_task.save
-      raise NotImplementedError.new("Could not save task")
+      puts "Could not save task"
     end
 
     # Log.debug { update }
@@ -92,7 +96,7 @@ class TasksController < ActionController::Base
     task.delete
     render text: Task.query.select.to_a.to_json
     if !task.delete
-      raise NotImplementedError.new("Could not delete task")
+      puts "Could not delete task"
     end
   end
 
@@ -103,6 +107,7 @@ class TasksController < ActionController::Base
     response.headers["Access-Control-Allow-Methods"] = "GET, POST, PATCH, DELETE, HEAD, OPTIONS"
     response.headers["Access-Control-Allow-Headers"] = "Content-Type"
   end
+
   options "/:id" do
     response.headers["Access-Control-Allow-Origin"] = "*"
     response.headers["Access-Control-Allow-Methods"] = "GET, POST, PATCH, DELETE, HEAD, OPTIONS"
