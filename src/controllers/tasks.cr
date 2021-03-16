@@ -1,38 +1,30 @@
 require "action-controller"
+require "./application.cr"
 require "../models/task.cr"
 require "json"
+require "../helpers/serialiser.cr"
 require "http/client"
 require "log" # https://crystal-lang.org/api/0.34.0/Log.html
 require "xml"
 
-# https://crystal-lang.org/api/0.36.1/JSON/Serializable.html
-class TaskBody
-  include JSON::Serializable
-
-  getter name : String
-  getter description : String
-  getter done : Bool
-  getter id : Int32
-end
-
 class TasksController < ActionController::Base
-  Log = ::Log.for("controller")
+  include JSON::Serializable
+  before_action :find_task, only: [:show, :update, :destroy]
+  # Lazy initialization via getter macro - https://crystal-lang.org/api/0.36.1/Object.html#getter(*names,&block)-macro
+  getter task : Task { find_task }
+  # Log = ::Log.for("controller")
 
   # Error handling
-  rescue_from Error::Base do |exception|
+  rescue_from NotImplementedError do |exception|
     render xml: exception, status: 500
   end
 
-  rescue_from JSON::SerializeError do |error|
-    head :bad_request, text: error.message
+  rescue_from JSON::SerializableError do |error|
+    render text: error.message, status: 500
   end
 
   # Root
   base "/tasks"
-
-  before_action :find_task, only: [:show, :update, :destroy]
-  # Lazy initialization via getter macro - https://crystal-lang.org/api/0.36.1/Object.html#getter(*names,&block)-macro
-  getter task : Task { find_task }
 
   # CRUD methods
   # GET /tasks/
@@ -47,40 +39,41 @@ class TasksController < ActionController::Base
 
   # GET /tasks/:id
   def show
-    Log.debug { show }
+    # Log.debug { show }
     render text: task.to_json
   end
 
   # POST /tasks/
   def create
-    new_task = Task.new(from_json(request.body))
+    new_task = Task.new(from_json(request.body.as(IO)))
     new_task.save!
     render text: new_task.to_json
 
     if !new_task.save
-      raise Error.new("Could not save task")
+      raise NotImplementedError.new("Could not save task")
     end
   end
 
-  task_body = TaskBody.from_json(request.body.as(IO))
-
   # PATCH /tasks/:id
   def update
-    user_input = JSON.parse(request.body.as(IO)).as_h
-    user_input.each do |key, value|
+    # user_input = JSON.parse(request.body.as(IO)).as_h
+    # user_input.each do |key, value|
+    # case key
+    # when "name" then task.name = value
+    # when "description" then task.description = value
+    # end
+    # task.done = key == "done" && value == "true"
+    # task.save!
+
+    ###############
+
+    task_body = TaskBody.from_json(request.body.as(IO))
+    task_body.each do |key, value|
       key = key.to_s
 
-      # case key
-      # when "name" then task.name = value
-      # when "description" then task.description = value
-      # end
-      # task.done = key == "done" && value == "true"
-      # task.save!
-
-      task_input = TaskBody.from_json(request.body)
       case key
-      when "name"        then task.name = task_input.name
-      when "description" then task.description = task_input.description
+      when "name"        then task.name = task_body.name
+      when "description" then task.description = task_body.description
       end
       task.done = key == "done" && value == "true"
       task.save!
@@ -88,25 +81,22 @@ class TasksController < ActionController::Base
 
     render text: task.to_json
     if !new_task.save
-      raise Error.new("Could not save task")
+      raise NotImplementedError.new("Could not save task")
     end
 
-    # respond_with do
-    #     html template("edit.ecr")
-    #   end
-    Log.debug { update }
+    # Log.debug { update }
   end
 
   # DELETE /tasks/:id
   def destroy
-    # task.delete
-    # render text: Task.query.select.to_a.to_json
-    # if !task.delete
-    #   raise Error.new("Could not delete task")
-    # end
+    task.delete
+    render text: Task.query.select.to_a.to_json
+    if !task.delete
+      raise NotImplementedError.new("Could not delete task")
+    end
   end
 
-  # CORS - allowed methods for which requests can be made
+  # CORS - allow access from any origin for the below methods
   # https://iridakos.com/programming/2018/03/28/custom-http-headers
   options "/" do
     response.headers["Access-Control-Allow-Origin"] = "*"
@@ -124,5 +114,3 @@ class TasksController < ActionController::Base
     # Task.query.select.to_a.find(raw("tasks.id") == params["id"])
   end
 end
-
-

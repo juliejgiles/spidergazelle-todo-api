@@ -18,7 +18,7 @@ if App.running_in_production?
   ::Log.setup "*", :warn, App::LOG_BACKEND
 else
   log_level = Log::Severity::Debug
-  ::Log.setup "*", :log, App::LOG_BACKEND
+  ::Log.setup "*", :info, App::LOG_BACKEND
 end
 
 Log.builder.bind "action-controller.*", log_level, App::LOG_BACKEND
