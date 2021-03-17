@@ -13,7 +13,7 @@
 <script type="text/javascript" src="js/doc.js"></script>
 
   <meta name="repository-name" content="spider-gazelle">
-  <title>CreateTable1 - spider-gazelle main-dev</title>
+  <title>TaskBody - spider-gazelle main-dev</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "";
   </script>
@@ -61,7 +61,7 @@
       
     </li>
   
-  <li class="parent open current" data-id="spider-gazelle/CreateTable1" data-name="createtable1">
+  <li class="parent " data-id="spider-gazelle/CreateTable1" data-name="createtable1">
       <a href="CreateTable1.html">CreateTable1</a>
       
         <ul>
@@ -91,7 +91,7 @@
       
     </li>
   
-  <li class=" " data-id="spider-gazelle/TaskBody" data-name="taskbody">
+  <li class=" current" data-id="spider-gazelle/TaskBody" data-name="taskbody">
       <a href="TaskBody.html">TaskBody</a>
       
     </li>
@@ -110,15 +110,26 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">class</span> CreateTable1
+  <span class="kind">class</span> TaskBody
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="CreateTable1.html">CreateTable1</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="TaskBody.html">TaskBody</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>https://crystal-lang.org/api/0.36.1/JSON/Serializable.html</p>
 
 
 
@@ -134,9 +145,7 @@
   </h2>
   <ul class="other-types-list">
     
-      <li class="other-type">Clear::ErrorMessages</li>
-    
-      <li class="other-type">Clear::Migration</li>
+      <li class="other-type">JSON::Serializable</li>
     
   </ul>
 
@@ -163,6 +172,23 @@
 
 
 
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(pull:JSON::PullParser)-class-method" class="signature"><strong>.new</strong>(pull : JSON::PullParser)</a>
+        
+      </li>
+    
+  </ul>
+
 
 
 
@@ -178,14 +204,22 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#change(direction)-instance-method" class="signature"><strong>#change</strong>(direction)</a>
+        <a href="#description:String-instance-method" class="signature"><strong>#description</strong> : String</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#uid:Int64-instance-method" class="signature"><strong>#uid</strong> : Int64</a>
+        <a href="#done:Bool-instance-method" class="signature"><strong>#done</strong> : Bool</a>
         
-          <div class="summary"><p>Return the migration number (Unique ID or UID) for migration sorting.</p></div>
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id:Int32-instance-method" class="signature"><strong>#id</strong> : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#name:String-instance-method" class="signature"><strong>#name</strong> : String</a>
         
       </li>
     
@@ -227,48 +261,32 @@
 
 
   
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
-    
-
-
-    
-
-
-    
-
-
-  
 </div>
 
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(pull:JSON::PullParser)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(pull : JSON::PullParser)
+
+        <a class="method-permalink" href="#new(pull:JSON::PullParser)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
 
 
 
@@ -283,12 +301,12 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="change(direction)-instance-method">
+    <div class="entry-detail" id="description:String-instance-method">
       <div class="signature">
         
-        def <strong>change</strong>(direction)
+        def <strong>description</strong> : String
 
-        <a class="method-permalink" href="#change(direction)-instance-method">#</a>
+        <a class="method-permalink" href="#description:String-instance-method">#</a>
       </div>
       
       <br/>
@@ -297,29 +315,41 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="uid:Int64-instance-method">
+    <div class="entry-detail" id="done:Bool-instance-method">
       <div class="signature">
         
-        def <strong>uid</strong> : Int64
+        def <strong>done</strong> : Bool
 
-        <a class="method-permalink" href="#uid:Int64-instance-method">#</a>
+        <a class="method-permalink" href="#done:Bool-instance-method">#</a>
       </div>
       
-        <div class="doc">
-          
-          <p>Return the migration number (Unique ID or UID) for migration sorting.</p>
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>id</strong> : Int32
 
-<p>Default behavior (By order of priority):</p>
+        <a class="method-permalink" href="#id:Int32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="name:String-instance-method">
+      <div class="signature">
+        
+        def <strong>name</strong> : String
 
-<ul><li>The uid will be generated by the class name, if the class name contains number at the end.</li><li>If there's no numbers in the migration class, then it will try to use the id in the filename</li><li>If not found, an exception is raised. This method can be overwritten by the concrete migration in case you need it.</li></ul>
-
-<p>Example:</p>
-
-<p><code>class MyMigration1234567 # << Order = 1234567</code>
-<code>file db/1234567_my_migration.cr # << Order = 1234567</code></p>
-
-
-        </div>
+        <a class="method-permalink" href="#name:String-instance-method">#</a>
+      </div>
       
       <br/>
       <div>

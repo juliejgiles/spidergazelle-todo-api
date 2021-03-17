@@ -1,4 +1,5 @@
 require "json"
+require "clear"
 
 # https://crystal-lang.org/api/0.36.1/JSON/Serializable.html
 class TaskBody
@@ -9,4 +10,3 @@ class TaskBody
   getter done : Bool
   getter id : Int32
 end
-

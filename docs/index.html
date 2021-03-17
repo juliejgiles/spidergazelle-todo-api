@@ -91,6 +91,11 @@
       
     </li>
   
+  <li class=" " data-id="spider-gazelle/TaskBody" data-name="taskbody">
+      <a href="TaskBody.html">TaskBody</a>
+      
+    </li>
+  
   <li class=" " data-id="spider-gazelle/TasksController" data-name="taskscontroller">
       <a href="TasksController.html">TasksController</a>
       
@@ -103,16 +108,11 @@
 
 
 <div class="main-content">
-<h1><a id="spider-gazelle-application-template" class="anchor" href="#spider-gazelle-application-template">
+<h1><a id="spider-gazelle-to-do-list-api" class="anchor" href="#spider-gazelle-to-do-list-api">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>Spider-Gazelle Application Template</h1>
-
-<p><a href="https://travis-ci.org/spider-gazelle/spider-gazelle"><img src="https://travis-ci.org/spider-gazelle/spider-gazelle.svg?branch=master" alt="Build Status"/></a></p>
-
-<p>Clone this repository to start building your own spider-gazelle based application.
-This is a template and as such, Do What the Fuck You Want To</p>
+</a>Spider-Gazelle To-do-list API</h1>
 
 <h2><a id="documentation" class="anchor" href="#documentation">
   <svg class="octicon-link" aria-hidden="true">
@@ -120,11 +120,17 @@ This is a template and as such, Do What the Fuck You Want To</p>
   </svg>
 </a>Documentation</h2>
 
-<p>Detailed documentation and guides available: https://spider-gazelle.net/</p>
+<p>ROUTES:</p>
 
-<ul><li><a href="https://github.com/spider-gazelle/action-controller">Action Controller</a> base class for building <a href="http://guides.rubyonrails.org/action_controller_overview.html">Controllers</a></li><li><a href="https://github.com/spider-gazelle/active-model">Active Model</a> base class for building <a href="https://en.wikipedia.org/wiki/Object-relational_mapping">ORMs</a></li><li><a href="https://github.com/luckyframework/habitat">Habitat</a> configuration and settings for Crystal projects</li><li><a href="https://github.com/tbrand/router.cr">router.cr</a> base request handling</li><li><a href="https://github.com/luislavena/radix">Radix</a> Radix Tree implementation for request routing</li><li><a href="https://crystal-lang.org/api/latest/HTTP/Server.html">HTTP::Server</a> built-in Crystal Lang HTTP server</li><ul><li>Request</li><li>Response</li><li>Cookies</li><li>Headers</li><li>Params etc</li></ul></ul>
+<ul><li>GET <strong>/tasks</strong> to view all tasks</li><li>GET <strong>/tasks/:id</strong> to view one task</li><li>POST <strong>/tasks</strong> to add a new task</li><li>PATCH <strong>/tasks/:id</strong> to update a task</li><li>DELETE <strong>/tasks/:id</strong> to delete a task</li></ul>
 
-<p>Spider-Gazelle builds on the amazing performance of <strong>router.cr</strong> <a href="https://github.com/tbrand/which_is_the_fastest">here</a>.:rocket:</p>
+<h2><a id="running-app" class="anchor" href="#running-app">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Running app</h2>
+
+<ul><li>Run <code>crystal /src/app.cr</code> to run in development mode</li></ul>
 
 <h2><a id="testing" class="anchor" href="#testing">
   <svg class="octicon-link" aria-hidden="true">
@@ -132,9 +138,7 @@ This is a template and as such, Do What the Fuck You Want To</p>
   </svg>
 </a>Testing</h2>
 
-<p><code>crystal spec</code></p>
-
-<ul><li>to run in development mode <code>crystal ./src/app.cr</code></li></ul>
+<ul><li>Run <code>crystal spec</code></li><li>to run in development mode <code>crystal ./src/app.cr</code></li></ul>
 
 <h2><a id="compiling" class="anchor" href="#compiling">
   <svg class="octicon-link" aria-hidden="true">

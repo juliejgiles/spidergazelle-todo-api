@@ -91,6 +91,11 @@
       
     </li>
   
+  <li class=" " data-id="spider-gazelle/TaskBody" data-name="taskbody">
+      <a href="TaskBody.html">TaskBody</a>
+      
+    </li>
+  
   <li class=" current" data-id="spider-gazelle/TasksController" data-name="taskscontroller">
       <a href="TasksController.html">TasksController</a>
       
@@ -110,10 +115,21 @@
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="TasksController.html">TasksController</a></li><li class="superclass">ActionController::Base</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="TasksController.html">TasksController</a></li><li class="superclass"><a href="Application.html">Application</a></li><li class="superclass">ActionController::Base</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>class TasksController &lt; ActionController::Base</p>
 
 
 
@@ -156,20 +172,36 @@
         <strong>AFTER</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
       </dt>
       
+      <dd class="entry-const-doc">
+        <p>class TasksController &lt; ActionController::Base</p>
+      </dd>
+      
     
       <dt class="entry-const" id="AROUND">
         <strong>AROUND</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
       </dt>
       
+      <dd class="entry-const-doc">
+        <p>class TasksController &lt; ActionController::Base</p>
+      </dd>
+      
     
       <dt class="entry-const" id="BEFORE">
-        <strong>BEFORE</strong> = <code>{find_task => {[show, update, destroy], <span class="n">nil</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+        <strong>BEFORE</strong> = <code>{find_task => {[show, update, destroy], <span class="n">nil</span>}, set_request_id => {<span class="n">nil</span>, <span class="n">nil</span>}, set_date_header => {<span class="n">nil</span>, <span class="n">nil</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
       </dt>
+      
+      <dd class="entry-const-doc">
+        <p>class TasksController &lt; ActionController::Base</p>
+      </dd>
       
     
       <dt class="entry-const" id="FORCE">
         <strong>FORCE</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
       </dt>
+      
+      <dd class="entry-const-doc">
+        <p>class TasksController &lt; ActionController::Base</p>
+      </dd>
       
     
       <dt class="entry-const" id="LOCAL_AFTER">
@@ -209,7 +241,11 @@
       
     
       <dt class="entry-const" id="LOCAL_RESCUE">
-        <strong>LOCAL_RESCUE</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+        <strong>LOCAL_RESCUE</strong> = <code>{<span class="t">JSON</span><span class="t">::</span><span class="t">SerializableError</span> => {json_serializable_error, <span class="k">do</span> <span class="o">|</span>error<span class="o">|</span>
+  render(text: error.message, status: <span class="n">500</span>)
+<span class="k">end</span>}, <span class="t">NotImplementedError</span> => {not_implemented_error, <span class="k">do</span> <span class="o">|</span>exception<span class="o">|</span>
+  render(text: exception.message, status: <span class="n">501</span>)
+<span class="k">end</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
       </dt>
       
       <dd class="entry-const-doc">
@@ -218,7 +254,15 @@
       
     
       <dt class="entry-const" id="LOCAL_ROUTES">
-        <strong>LOCAL_ROUTES</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+        <strong>LOCAL_ROUTES</strong> = <code>{options_ => {<span class="s">&quot;options&quot;</span>, <span class="s">&quot;/&quot;</span>, <span class="k">do</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Origin&quot;</span>] <span class="o">=</span> <span class="s">&quot;*&quot;</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Methods&quot;</span>] <span class="o">=</span> <span class="s">&quot;GET, POST, PATCH, DELETE, HEAD, OPTIONS&quot;</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Headers&quot;</span>] <span class="o">=</span> <span class="s">&quot;Content-Type&quot;</span>
+<span class="k">end</span>, <span class="n">false</span>}, options__id => {<span class="s">&quot;options&quot;</span>, <span class="s">&quot;/:id&quot;</span>, <span class="k">do</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Origin&quot;</span>] <span class="o">=</span> <span class="s">&quot;*&quot;</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Methods&quot;</span>] <span class="o">=</span> <span class="s">&quot;GET, POST, PATCH, DELETE, HEAD, OPTIONS&quot;</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Headers&quot;</span>] <span class="o">=</span> <span class="s">&quot;Content-Type&quot;</span>
+<span class="k">end</span>, <span class="n">false</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
       </dt>
       
       <dd class="entry-const-doc">
@@ -235,6 +279,11 @@
       </dd>
       
     
+      <dt class="entry-const" id="Log">
+        <strong>Log</strong> = <code><span class="t">::</span><span class="t">Log</span>.<span class="k">for</span>(<span class="s">&quot;controller&quot;</span>)</code>
+      </dt>
+      
+    
       <dt class="entry-const" id="NAMESPACE">
         <strong>NAMESPACE</strong> = <code>[<span class="s">&quot;/tasks&quot;</span>]</code>
       </dt>
@@ -245,42 +294,47 @@
       
     
       <dt class="entry-const" id="RESCUE">
-        <strong>RESCUE</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+        <strong>RESCUE</strong> = <code>{<span class="t">JSON</span><span class="t">::</span><span class="t">SerializableError</span> => {json_serializable_error, <span class="k">do</span> <span class="o">|</span>error<span class="o">|</span>
+  render(text: error.message, status: <span class="n">500</span>)
+<span class="k">end</span>}, <span class="t">NotImplementedError</span> => {not_implemented_error, <span class="k">do</span> <span class="o">|</span>exception<span class="o">|</span>
+  render(text: exception.message, status: <span class="n">501</span>)
+<span class="k">end</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
       </dt>
+      
+      <dd class="entry-const-doc">
+        <p>class TasksController &lt; ActionController::Base</p>
+      </dd>
       
     
       <dt class="entry-const" id="ROUTES">
-        <strong>ROUTES</strong> = <code>{index => {<span class="s">&quot;get&quot;</span>, <span class="s">&quot;/&quot;</span>, <span class="n">nil</span>, <span class="n">false</span>}, show => {<span class="s">&quot;get&quot;</span>, <span class="s">&quot;/:id&quot;</span>, <span class="n">nil</span>, <span class="n">false</span>}, <span class="k">new</span> => {<span class="s">&quot;get&quot;</span>, <span class="s">&quot;/new&quot;</span>, <span class="n">nil</span>, <span class="n">false</span>}, create => {<span class="s">&quot;post&quot;</span>, <span class="s">&quot;/&quot;</span>, <span class="n">nil</span>, <span class="n">false</span>}, update => {<span class="s">&quot;patch&quot;</span>, <span class="s">&quot;/:id&quot;</span>, <span class="n">nil</span>, <span class="n">false</span>}, destroy => {<span class="s">&quot;delete&quot;</span>, <span class="s">&quot;/:id&quot;</span>, <span class="n">nil</span>, <span class="n">false</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+        <strong>ROUTES</strong> = <code>{options_ => {<span class="s">&quot;options&quot;</span>, <span class="s">&quot;/&quot;</span>, <span class="k">do</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Origin&quot;</span>] <span class="o">=</span> <span class="s">&quot;*&quot;</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Methods&quot;</span>] <span class="o">=</span> <span class="s">&quot;GET, POST, PATCH, DELETE, HEAD, OPTIONS&quot;</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Headers&quot;</span>] <span class="o">=</span> <span class="s">&quot;Content-Type&quot;</span>
+<span class="k">end</span>, <span class="n">false</span>}, options__id => {<span class="s">&quot;options&quot;</span>, <span class="s">&quot;/:id&quot;</span>, <span class="k">do</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Origin&quot;</span>] <span class="o">=</span> <span class="s">&quot;*&quot;</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Methods&quot;</span>] <span class="o">=</span> <span class="s">&quot;GET, POST, PATCH, DELETE, HEAD, OPTIONS&quot;</span>
+  response.headers[<span class="s">&quot;Access-Control-Allow-Headers&quot;</span>] <span class="o">=</span> <span class="s">&quot;Content-Type&quot;</span>
+<span class="k">end</span>, <span class="n">false</span>}, index => {<span class="s">&quot;get&quot;</span>, <span class="s">&quot;/&quot;</span>, <span class="n">nil</span>, <span class="n">false</span>}, show => {<span class="s">&quot;get&quot;</span>, <span class="s">&quot;/:id&quot;</span>, <span class="n">nil</span>, <span class="n">false</span>}, create => {<span class="s">&quot;post&quot;</span>, <span class="s">&quot;/&quot;</span>, <span class="n">nil</span>, <span class="n">false</span>}, update => {<span class="s">&quot;patch&quot;</span>, <span class="s">&quot;/:id&quot;</span>, <span class="n">nil</span>, <span class="n">false</span>}, destroy => {<span class="s">&quot;delete&quot;</span>, <span class="s">&quot;/:id&quot;</span>, <span class="n">nil</span>, <span class="n">false</span>}} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
       </dt>
+      
+      <dd class="entry-const-doc">
+        <p>class TasksController &lt; ActionController::Base</p>
+      </dd>
       
     
       <dt class="entry-const" id="SKIP">
         <strong>SKIP</strong> = <code>{} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
       </dt>
       
+      <dd class="entry-const-doc">
+        <p>class TasksController &lt; ActionController::Base</p>
+      </dd>
+      
     
   </dl>
 
 
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
-    
-      <li class="entry-summary">
-        <a href="#new(hash_parts:Hash(String%7CSymbol,Nil%7CBool%7CInt32%7CInt64%7CFloat32%7CFloat64%7CString%7CSymbol)?=nil,**tuple_parts)-class-method" class="signature"><strong>.new</strong>(hash_parts : Hash(String | Symbol, Nil | Bool | Int32 | Int64 | Float32 | Float64 | String | Symbol)? = <span class="n">nil</span>, **tuple_parts)</a>
-        
-          <div class="summary"><p>Create draw_routes function</p></div>
-        
-      </li>
-    
-  </ul>
 
 
 
@@ -318,6 +372,8 @@
       <li class="entry-summary">
         <a href="#context(method:String,route:String,route_params:Hash(String,String)?=nil,headers:Hash(String,String)?=nil,body:String%7CBytes%7CIO%7CNil=nil,&)-class-method" class="signature"><strong>.context</strong>(method : String, route : String, route_params : Hash(String, String)? = <span class="n">nil</span>, headers : Hash(String, String)? = <span class="n">nil</span>, body : String | Bytes | IO | Nil = <span class="n">nil</span>, &)</a>
         
+          <div class="summary"><p>class TasksController &lt; ActionController::Base</p></div>
+        
       </li>
     
       <li class="entry-summary">
@@ -344,7 +400,7 @@
       <li class="entry-summary">
         <a href="#get__tasks_(context,head_request)-class-method" class="signature"><strong>.get__tasks_</strong>(context, head_request)</a>
         
-          <div class="summary"><p>Generate functions for each route</p></div>
+          <div class="summary"><p>Create draw_routes function</p></div>
         
       </li>
     
@@ -356,16 +412,37 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#get__tasks_new(context,head_request)-class-method" class="signature"><strong>.get__tasks_new</strong>(context, head_request)</a>
+        <a href="#index(hash_parts:Hash(String%7CSymbol,Nil%7CBool%7CInt32%7CInt64%7CFloat32%7CFloat64%7CString%7CSymbol)?=nil,**tuple_parts)-class-method" class="signature"><strong>.index</strong>(hash_parts : Hash(String | Symbol, Nil | Bool | Int32 | Int64 | Float32 | Float64 | String | Symbol)? = <span class="n">nil</span>, **tuple_parts)</a>
         
           <div class="summary"><p>Create draw_routes function</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#index(hash_parts:Hash(String%7CSymbol,Nil%7CBool%7CInt32%7CInt64%7CFloat32%7CFloat64%7CString%7CSymbol)?=nil,**tuple_parts)-class-method" class="signature"><strong>.index</strong>(hash_parts : Hash(String | Symbol, Nil | Bool | Int32 | Int64 | Float32 | Float64 | String | Symbol)? = <span class="n">nil</span>, **tuple_parts)</a>
+        <a href="#options_(hash_parts:Hash(String%7CSymbol,Nil%7CBool%7CInt32%7CInt64%7CFloat32%7CFloat64%7CString%7CSymbol)?=nil,**tuple_parts)-class-method" class="signature"><strong>.options_</strong>(hash_parts : Hash(String | Symbol, Nil | Bool | Int32 | Int64 | Float32 | Float64 | String | Symbol)? = <span class="n">nil</span>, **tuple_parts)</a>
         
           <div class="summary"><p>Helper methods for performing redirect_to calls</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options__id(hash_parts:Hash(String%7CSymbol,Nil%7CBool%7CInt32%7CInt64%7CFloat32%7CFloat64%7CString%7CSymbol)?=nil,**tuple_parts)-class-method" class="signature"><strong>.options__id</strong>(hash_parts : Hash(String | Symbol, Nil | Bool | Int32 | Int64 | Float32 | Float64 | String | Symbol)? = <span class="n">nil</span>, **tuple_parts)</a>
+        
+          <div class="summary"><p>Create draw_routes function</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options__tasks_(context,head_request)-class-method" class="signature"><strong>.options__tasks_</strong>(context, head_request)</a>
+        
+          <div class="summary"><p>Generate functions for each route</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options__tasks__id(context,head_request)-class-method" class="signature"><strong>.options__tasks__id</strong>(context, head_request)</a>
+        
+          <div class="summary"><p>Create draw_routes function</p></div>
         
       </li>
     
@@ -435,14 +512,35 @@
       <li class="entry-summary">
         <a href="#index-instance-method" class="signature"><strong>#index</strong></a>
         
-          <div class="summary"><p>GET /tasks/</p></div>
+          <div class="summary"><p>CRUD methods GET /tasks/</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#new-instance-method" class="signature"><strong>#new</strong></a>
+        <a href="#json_serializable_error(error)-instance-method" class="signature"><strong>#json_serializable_error</strong>(error)</a>
         
-          <div class="summary"><p>GET "/tasks/new"</p></div>
+          <div class="summary"><p>Create functions as required for errors Skip the CRUD</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#not_implemented_error(exception)-instance-method" class="signature"><strong>#not_implemented_error</strong>(exception)</a>
+        
+          <div class="summary"><p>Skip the CRUD</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options_-instance-method" class="signature"><strong>#options_</strong></a>
+        
+          <div class="summary"><p>Create functions for named routes Skip the CRUD</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#options__id-instance-method" class="signature"><strong>#options__id</strong></a>
+        
+          <div class="summary"><p>Skip the CRUD</p></div>
         
       </li>
     
@@ -450,6 +548,13 @@
         <a href="#show-instance-method" class="signature"><strong>#show</strong></a>
         
           <div class="summary"><p>GET /tasks/:id</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#task-instance-method" class="signature"><strong>#task</strong></a>
+        
+          <div class="summary"><p>Lazy initialization via getter macro - https://crystal-lang.org/api/0.36.1/Object.html#getter(*names,&block)-macro</p></div>
         
       </li>
     
@@ -517,6 +622,39 @@
   
     
 
+  <h3>Instance methods inherited from class <code><a href="Application.html">Application</a></code></h3>
+  
+  
+    <a href="Application.html#set_date_header-instance-method" class="tooltip">
+      <span>set_date_header</span>
+    set_date_header</a>, 
+    
+  
+    <a href="Application.html#set_request_id-instance-method" class="tooltip">
+      <span>set_request_id</span>
+    set_request_id</a>
+    
+  
+
+
+    
+
+
+    
+
+  <h3>Class methods inherited from class <code><a href="Application.html">Application</a></code></h3>
+  
+  
+    <a href="Application.html#context(method:String,route:String,route_params:Hash(String,String)?=nil,headers:Hash(String,String)?=nil,body:String%7CBytes%7CIO%7CNil=nil,&)-class-method" class="tooltip">
+      <span>context(method : String, route : String, route_params : Hash(String, String)? = <span class="n">nil</span>, headers : Hash(String, String)? = <span class="n">nil</span>, body : String | Bytes | IO | Nil = <span class="n">nil</span>, &)</span>
+    context</a>
+    
+  
+
+
+  
+    
+
 
     
 
@@ -567,45 +705,6 @@
   
 </div>
 
-
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(hash_parts:Hash(String|Symbol,Nil|Bool|Int32|Int64|Float32|Float64|String|Symbol)?=nil,**tuple_parts)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(hash_parts : Hash(String | Symbol, Nil | Bool | Int32 | Int64 | Float32 | Float64 | String | Symbol)? = <span class="n">nil</span>, **tuple_parts)
-
-        <a class="method-permalink" href="#new(hash_parts:Hash(String%7CSymbol,Nil%7CBool%7CInt32%7CInt64%7CFloat32%7CFloat64%7CString%7CSymbol)?=nil,**tuple_parts)-class-method">#</a>
-      </div>
-      
-        <div class="doc">
-          
-          <p>Create draw_routes function</p>
-
-<p>Create instance of controller class init with context, params and logger
-protocol checks (https etc)
-controller instance created
-begin exception helpers
-inline the around filters
-inline the before filters
-inline the action
-inline the after filters
-rescue exception handlers</p>
-        </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
 
 
 
@@ -692,6 +791,11 @@ rescue exception handlers</p>
 
         <a class="method-permalink" href="#context(method:String,route:String,route_params:Hash(String,String)?=nil,headers:Hash(String,String)?=nil,body:String%7CBytes%7CIO%7CNil=nil,&)-class-method">#</a>
       </div>
+      
+        <div class="doc">
+          
+          <p>class TasksController &lt; ActionController::Base</p>
+        </div>
       
       <br/>
       <div>
@@ -796,7 +900,17 @@ rescue exception handlers</p>
       
         <div class="doc">
           
-          <p>Generate functions for each route</p>
+          <p>Create draw_routes function</p>
+
+<p>Create instance of controller class init with context, params and logger
+protocol checks (https etc)
+controller instance created
+begin exception helpers
+inline the around filters
+inline the before filters
+inline the action
+inline the after filters
+rescue exception handlers</p>
         </div>
       
       <br/>
@@ -834,12 +948,12 @@ rescue exception handlers</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="get__tasks_new(context,head_request)-class-method">
+    <div class="entry-detail" id="index(hash_parts:Hash(String|Symbol,Nil|Bool|Int32|Int64|Float32|Float64|String|Symbol)?=nil,**tuple_parts)-class-method">
       <div class="signature">
         
-        def self.<strong>get__tasks_new</strong>(context, head_request)
+        def self.<strong>index</strong>(hash_parts : Hash(String | Symbol, Nil | Bool | Int32 | Int64 | Float32 | Float64 | String | Symbol)? = <span class="n">nil</span>, **tuple_parts)
 
-        <a class="method-permalink" href="#get__tasks_new(context,head_request)-class-method">#</a>
+        <a class="method-permalink" href="#index(hash_parts:Hash(String%7CSymbol,Nil%7CBool%7CInt32%7CInt64%7CFloat32%7CFloat64%7CString%7CSymbol)?=nil,**tuple_parts)-class-method">#</a>
       </div>
       
         <div class="doc">
@@ -863,17 +977,94 @@ rescue exception handlers</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="index(hash_parts:Hash(String|Symbol,Nil|Bool|Int32|Int64|Float32|Float64|String|Symbol)?=nil,**tuple_parts)-class-method">
+    <div class="entry-detail" id="options_(hash_parts:Hash(String|Symbol,Nil|Bool|Int32|Int64|Float32|Float64|String|Symbol)?=nil,**tuple_parts)-class-method">
       <div class="signature">
         
-        def self.<strong>index</strong>(hash_parts : Hash(String | Symbol, Nil | Bool | Int32 | Int64 | Float32 | Float64 | String | Symbol)? = <span class="n">nil</span>, **tuple_parts)
+        def self.<strong>options_</strong>(hash_parts : Hash(String | Symbol, Nil | Bool | Int32 | Int64 | Float32 | Float64 | String | Symbol)? = <span class="n">nil</span>, **tuple_parts)
 
-        <a class="method-permalink" href="#index(hash_parts:Hash(String%7CSymbol,Nil%7CBool%7CInt32%7CInt64%7CFloat32%7CFloat64%7CString%7CSymbol)?=nil,**tuple_parts)-class-method">#</a>
+        <a class="method-permalink" href="#options_(hash_parts:Hash(String%7CSymbol,Nil%7CBool%7CInt32%7CInt64%7CFloat32%7CFloat64%7CString%7CSymbol)?=nil,**tuple_parts)-class-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>Helper methods for performing redirect_to calls</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options__id(hash_parts:Hash(String|Symbol,Nil|Bool|Int32|Int64|Float32|Float64|String|Symbol)?=nil,**tuple_parts)-class-method">
+      <div class="signature">
+        
+        def self.<strong>options__id</strong>(hash_parts : Hash(String | Symbol, Nil | Bool | Int32 | Int64 | Float32 | Float64 | String | Symbol)? = <span class="n">nil</span>, **tuple_parts)
+
+        <a class="method-permalink" href="#options__id(hash_parts:Hash(String%7CSymbol,Nil%7CBool%7CInt32%7CInt64%7CFloat32%7CFloat64%7CString%7CSymbol)?=nil,**tuple_parts)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Create draw_routes function</p>
+
+<p>Create instance of controller class init with context, params and logger
+protocol checks (https etc)
+controller instance created
+begin exception helpers
+inline the around filters
+inline the before filters
+inline the action
+inline the after filters
+rescue exception handlers</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options__tasks_(context,head_request)-class-method">
+      <div class="signature">
+        
+        def self.<strong>options__tasks_</strong>(context, head_request)
+
+        <a class="method-permalink" href="#options__tasks_(context,head_request)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generate functions for each route</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options__tasks__id(context,head_request)-class-method">
+      <div class="signature">
+        
+        def self.<strong>options__tasks__id</strong>(context, head_request)
+
+        <a class="method-permalink" href="#options__tasks__id(context,head_request)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Create draw_routes function</p>
+
+<p>Create instance of controller class init with context, params and logger
+protocol checks (https etc)
+controller instance created
+begin exception helpers
+inline the around filters
+inline the before filters
+inline the action
+inline the after filters
+rescue exception handlers</p>
         </div>
       
       <br/>
@@ -1077,7 +1268,8 @@ rescue exception handlers</p>
       
         <div class="doc">
           
-          <p>GET /tasks/</p>
+          <p>CRUD methods
+GET /tasks/</p>
         </div>
       
       <br/>
@@ -1086,17 +1278,76 @@ rescue exception handlers</p>
       </div>
     </div>
   
-    <div class="entry-detail" id="new-instance-method">
+    <div class="entry-detail" id="json_serializable_error(error)-instance-method">
       <div class="signature">
         
-        def <strong>new</strong>
+        def <strong>json_serializable_error</strong>(error)
 
-        <a class="method-permalink" href="#new-instance-method">#</a>
+        <a class="method-permalink" href="#json_serializable_error(error)-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>GET "/tasks/new"</p>
+          <p>Create functions as required for errors
+Skip the CRUD</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="not_implemented_error(exception)-instance-method">
+      <div class="signature">
+        
+        def <strong>not_implemented_error</strong>(exception)
+
+        <a class="method-permalink" href="#not_implemented_error(exception)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Skip the CRUD</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options_-instance-method">
+      <div class="signature">
+        
+        def <strong>options_</strong>
+
+        <a class="method-permalink" href="#options_-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Create functions for named routes
+Skip the CRUD</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="options__id-instance-method">
+      <div class="signature">
+        
+        def <strong>options__id</strong>
+
+        <a class="method-permalink" href="#options__id-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Skip the CRUD</p>
         </div>
       
       <br/>
@@ -1116,6 +1367,25 @@ rescue exception handlers</p>
         <div class="doc">
           
           <p>GET /tasks/:id</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="task-instance-method">
+      <div class="signature">
+        
+        def <strong>task</strong>
+
+        <a class="method-permalink" href="#task-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Lazy initialization via getter macro - https://crystal-lang.org/api/0.36.1/Object.html#getter(*names,&block)-macro</p>
         </div>
       
       <br/>

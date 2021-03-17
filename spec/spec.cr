@@ -32,18 +32,22 @@ describe "TasksController" do
   # end
 
   # Show method
-  it "shows a task", focus: true do
-    result = curl("GET", "/tasks/#{task_test.id}")
-    JSON.parse(result.body).as_h["id"].should eq(task_test.id)
-    result.status_code.should eq(200)
+  with_server do
+    it "shows a task", focus: true do
+      result = curl("GET", "/tasks/#{task_test.id}")
+      JSON.parse(result.body).as_h["id"].should eq(task_test.id)
+      result.status_code.should eq(200)
+    end
   end
 
   # Create method
-  it "creates a task", focus: true do
-    newtask_test = Task.new({name: "Test Name 2", description: "Test Description 2", done: false})
-    result = curl("POST", "/tasks", body: newtask_test.to_json)
-    result.status_code.should eq(200)
-    JSON.parse(result.body).as_h["name"].should eq(newtask_test.name)
+  with_server do
+    it "creates a task", focus: true do
+      newtask_test = Task.new({name: "Test Name 2", description: "Test Description 2", done: false})
+      result = curl("POST", "/tasks", body: newtask_test.to_json)
+      result.status_code.should eq(200)
+      JSON.parse(result.body).as_h["name"].should eq(newtask_test.name)
+    end
   end
 
   # Update method
